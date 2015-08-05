@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RBUser.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    // iOS 7:
+    [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+
+    [[UITableViewCell appearance] setSeparatorInset:UIEdgeInsetsZero];
+
+
+    // iOS 8:
+    if ([UITableView instancesRespondToSelector:@selector(setLayoutMargins:)]) {
+        [[UITableView appearance] setLayoutMargins:UIEdgeInsetsZero];
+        [[UITableViewCell appearance] setLayoutMargins:UIEdgeInsetsZero];
+        [[UITableViewCell appearance] setPreservesSuperviewLayoutMargins:NO];
+    }
+
+
+
+    [RBUser registerSubclass];
+    [Parse setApplicationId:@"5pTIb5VocsHO4wlNQwXOvmFI16TXLI8HsVp9qC4l"
+                  clientKey:@"Z9fJiVCWb6qizBYDn3Qjf7Prhi9jrkOw2MaDoCNp"];
+
+
+
+
     return YES;
 }
 

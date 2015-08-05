@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4Xj-VQ-YNt"; */
+"4Xj-VQ-YNt.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Inbox"; ObjectID = "FNX-bU-eGV"; */
+"FNX-bU-eGV.title" = "Inbox";
+
+/* Class = "UITabBarItem"; title = "Camera"; ObjectID = "ViW-XB-28D"; */
+"ViW-XB-28D.title" = "Camera";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eoq-eo-G9E"; */
+"eoq-eo-G9E.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Friends"; ObjectID = "pI2-is-6OK"; */
+"pI2-is-6OK.title" = "Friends";

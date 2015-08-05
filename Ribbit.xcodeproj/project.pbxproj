@@ -9,11 +9,20 @@
 /* Begin PBXBuildFile section */
 		1A4F281B1B71054F00C4BC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281A1B71054F00C4BC13 /* main.m */; };
 		1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281D1B71054F00C4BC13 /* AppDelegate.m */; };
-		1A4F28211B71054F00C4BC13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F28201B71054F00C4BC13 /* ViewController.m */; };
 		1A4F28241B71054F00C4BC13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28221B71054F00C4BC13 /* Main.storyboard */; };
 		1A4F28261B71054F00C4BC13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28251B71054F00C4BC13 /* Images.xcassets */; };
 		1A4F28291B71054F00C4BC13 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28271B71054F00C4BC13 /* LaunchScreen.xib */; };
 		1A4F28351B71054F00C4BC13 /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F28341B71054F00C4BC13 /* RibbitTests.m */; };
+		1A510E561B7203D900E777D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A510E581B7203D900E777D3 /* Localizable.strings */; };
+		1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E601B72196A00E777D3 /* InboxViewController.m */; };
+		1A510E651B72263000E777D3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E641B72263000E777D3 /* LoginViewController.m */; };
+		1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E671B72264C00E777D3 /* SinupViewController.m */; };
+		1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E6B1B722DE900E777D3 /* RBUser.m */; };
+		1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E6E1B722E8200E777D3 /* RBUtils.m */; };
+		1A510E741B722F3500E777D3 /* RBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E731B722F3500E777D3 /* RBUserService.m */; };
+		1A510E771B72524300E777D3 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E761B72524300E777D3 /* FriendViewController.m */; };
+		1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E791B72525C00E777D3 /* EditFriendViewController.m */; };
+		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +36,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ribbit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F28151B71054F00C4BC13 /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F28191B71054F00C4BC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4F281A1B71054F00C4BC13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A4F281C1B71054F00C4BC13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A4F281D1B71054F00C4BC13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1A4F281F1B71054F00C4BC13 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1A4F28201B71054F00C4BC13 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1A4F28231B71054F00C4BC13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A4F28251B71054F00C4BC13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A4F28281B71054F00C4BC13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1A4F282E1B71054F00C4BC13 /* RibbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RibbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F28331B71054F00C4BC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4F28341B71054F00C4BC13 /* RibbitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RibbitTests.m; sourceTree = "<group>"; };
+		1A4F284C1B71F04D00C4BC13 /* Ribbit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Ribbit-Prefix.pch"; sourceTree = "<group>"; };
+		1A510E391B71F99600E777D3 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logging.h; path = Utils/Logging.h; sourceTree = "<group>"; };
+		1A510E521B72039400E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/Main.strings"; sourceTree = "<group>"; };
+		1A510E531B72039400E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		1A510E571B7203D900E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1A510E591B7203EC00E777D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A510E5B1B72042400E777D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A510E5F1B72196A00E777D3 /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InboxViewController.h; path = ViewController/InboxViewController.h; sourceTree = "<group>"; };
+		1A510E601B72196A00E777D3 /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InboxViewController.m; path = ViewController/InboxViewController.m; sourceTree = "<group>"; };
+		1A510E631B72263000E777D3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/LoginViewController.h; sourceTree = "<group>"; };
+		1A510E641B72263000E777D3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ViewController/LoginViewController.m; sourceTree = "<group>"; };
+		1A510E661B72264C00E777D3 /* SinupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinupViewController.h; path = ViewController/SinupViewController.h; sourceTree = "<group>"; };
+		1A510E671B72264C00E777D3 /* SinupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinupViewController.m; path = ViewController/SinupViewController.m; sourceTree = "<group>"; };
+		1A510E6A1B722DE900E777D3 /* RBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUser.h; path = Entity/RBUser.h; sourceTree = "<group>"; };
+		1A510E6B1B722DE900E777D3 /* RBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUser.m; path = Entity/RBUser.m; sourceTree = "<group>"; };
+		1A510E6D1B722E8200E777D3 /* RBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUtils.h; path = Utils/RBUtils.h; sourceTree = "<group>"; };
+		1A510E6E1B722E8200E777D3 /* RBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUtils.m; path = Utils/RBUtils.m; sourceTree = "<group>"; };
+		1A510E721B722F3500E777D3 /* RBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUserService.h; path = Network/RBUserService.h; sourceTree = "<group>"; };
+		1A510E731B722F3500E777D3 /* RBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUserService.m; path = Network/RBUserService.m; sourceTree = "<group>"; };
+		1A510E751B72524300E777D3 /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendViewController.h; path = ViewController/FriendViewController.h; sourceTree = "<group>"; };
+		1A510E761B72524300E777D3 /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendViewController.m; path = ViewController/FriendViewController.m; sourceTree = "<group>"; };
+		1A510E781B72525C00E777D3 /* EditFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditFriendViewController.h; path = ViewController/EditFriendViewController.h; sourceTree = "<group>"; };
+		1A510E791B72525C00E777D3 /* EditFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditFriendViewController.m; path = ViewController/EditFriendViewController.m; sourceTree = "<group>"; };
+		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
+		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +100,8 @@
 				1A4F28171B71054F00C4BC13 /* Ribbit */,
 				1A4F28311B71054F00C4BC13 /* RibbitTests */,
 				1A4F28161B71054F00C4BC13 /* Products */,
+				BE2558153D6EF4EA5EF3E7D9 /* Pods */,
+				F138C308A2407FFFB5A6B202 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +117,12 @@
 		1A4F28171B71054F00C4BC13 /* Ribbit */ = {
 			isa = PBXGroup;
 			children = (
-				1A4F281C1B71054F00C4BC13 /* AppDelegate.h */,
-				1A4F281D1B71054F00C4BC13 /* AppDelegate.m */,
-				1A4F281F1B71054F00C4BC13 /* ViewController.h */,
-				1A4F28201B71054F00C4BC13 /* ViewController.m */,
-				1A4F28221B71054F00C4BC13 /* Main.storyboard */,
+				1A510E701B722F1200E777D3 /* Network */,
+				1A510E691B72279600E777D3 /* Entity */,
+				1A4F284E1B71F31200C4BC13 /* AppDelegate */,
+				1A4F284D1B71F2D600C4BC13 /* Storyboard */,
+				1A4F283F1B71058900C4BC13 /* Utils */,
+				1A510E5C1B7218B200E777D3 /* ViewController */,
 				1A4F28251B71054F00C4BC13 /* Images.xcassets */,
 				1A4F28271B71054F00C4BC13 /* LaunchScreen.xib */,
 				1A4F28181B71054F00C4BC13 /* Supporting Files */,
@@ -98,6 +135,8 @@
 			children = (
 				1A4F28191B71054F00C4BC13 /* Info.plist */,
 				1A4F281A1B71054F00C4BC13 /* main.m */,
+				1A4F284C1B71F04D00C4BC13 /* Ribbit-Prefix.pch */,
+				1A510E581B7203D900E777D3 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,6 +158,133 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1A4F283E1B71057F00C4BC13 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E621B721A3500E777D3 /* Friends */,
+				1A510E5E1B72194100E777D3 /* Inbox */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		1A4F283F1B71058900C4BC13 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E371B71F8E600E777D3 /* Logging */,
+				1A510E6D1B722E8200E777D3 /* RBUtils.h */,
+				1A510E6E1B722E8200E777D3 /* RBUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1A4F284D1B71F2D600C4BC13 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1A4F28221B71054F00C4BC13 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		1A4F284E1B71F31200C4BC13 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1A4F281C1B71054F00C4BC13 /* AppDelegate.h */,
+				1A4F281D1B71054F00C4BC13 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1A510E371B71F8E600E777D3 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E391B71F99600E777D3 /* Logging.h */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		1A510E5C1B7218B200E777D3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E5D1B7218DF00E777D3 /* Authentication */,
+				1A4F283E1B71057F00C4BC13 /* Base */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		1A510E5D1B7218DF00E777D3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E631B72263000E777D3 /* LoginViewController.h */,
+				1A510E641B72263000E777D3 /* LoginViewController.m */,
+				1A510E661B72264C00E777D3 /* SinupViewController.h */,
+				1A510E671B72264C00E777D3 /* SinupViewController.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		1A510E5E1B72194100E777D3 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E5F1B72196A00E777D3 /* InboxViewController.h */,
+				1A510E601B72196A00E777D3 /* InboxViewController.m */,
+			);
+			name = Inbox;
+			sourceTree = "<group>";
+		};
+		1A510E621B721A3500E777D3 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E751B72524300E777D3 /* FriendViewController.h */,
+				1A510E761B72524300E777D3 /* FriendViewController.m */,
+				1A510E781B72525C00E777D3 /* EditFriendViewController.h */,
+				1A510E791B72525C00E777D3 /* EditFriendViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		1A510E691B72279600E777D3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E6A1B722DE900E777D3 /* RBUser.h */,
+				1A510E6B1B722DE900E777D3 /* RBUser.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1A510E701B722F1200E777D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E711B722F1900E777D3 /* Service */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		1A510E711B722F1900E777D3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E721B722F3500E777D3 /* RBUserService.h */,
+				1A510E731B722F3500E777D3 /* RBUserService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		BE2558153D6EF4EA5EF3E7D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */,
+				9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F138C308A2407FFFB5A6B202 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A4F28381B71054F00C4BC13 /* Build configuration list for PBXNativeTarget "Ribbit" */;
 			buildPhases = (
+				2E9B627F23C0696EB14E3042 /* Check Pods Manifest.lock */,
 				1A4F28111B71054F00C4BC13 /* Sources */,
 				1A4F28121B71054F00C4BC13 /* Frameworks */,
 				1A4F28131B71054F00C4BC13 /* Resources */,
+				D89B89CF74E9121526286A08 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4F28241B71054F00C4BC13 /* Main.storyboard in Resources */,
+				1A510E561B7203D900E777D3 /* Localizable.strings in Resources */,
 				1A4F28291B71054F00C4BC13 /* LaunchScreen.xib in Resources */,
 				1A4F28261B71054F00C4BC13 /* Images.xcassets in Resources */,
 			);
@@ -214,14 +383,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E9B627F23C0696EB14E3042 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D89B89CF74E9121526286A08 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1A4F28111B71054F00C4BC13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4F28211B71054F00C4BC13 /* ViewController.m in Sources */,
+				1A510E651B72263000E777D3 /* LoginViewController.m in Sources */,
+				1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */,
+				1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */,
+				1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */,
 				1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */,
+				1A510E771B72524300E777D3 /* FriendViewController.m in Sources */,
 				1A4F281B1B71054F00C4BC13 /* main.m in Sources */,
+				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
+				1A510E741B722F3500E777D3 /* RBUserService.m in Sources */,
+				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +457,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A4F28231B71054F00C4BC13 /* Base */,
+				1A510E521B72039400E777D3 /* nb-NO */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -256,8 +466,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A4F28281B71054F00C4BC13 /* Base */,
+				1A510E531B72039400E777D3 /* nb-NO */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		1A510E581B7203D900E777D3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A510E571B7203D900E777D3 /* nb-NO */,
+				1A510E591B7203EC00E777D3 /* en */,
+				1A510E5B1B72042400E777D3 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -288,6 +509,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Ribbit/Ribbit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -330,6 +553,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Ribbit/Ribbit-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -345,21 +570,27 @@
 		};
 		1A4F28391B71054F00C4BC13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Ribbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		1A4F283A1B71054F00C4BC13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Ribbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -416,6 +647,7 @@
 				1A4F283A1B71054F00C4BC13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A4F283B1B71054F00C4BC13 /* Build configuration list for PBXNativeTarget "RibbitTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +656,7 @@
 				1A4F283D1B71054F00C4BC13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

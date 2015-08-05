@@ -1,0 +1,26 @@
+//
+//  Ribbit-Prefix.pch
+//  Ribbit
+//
+//  Created by Amir Ghoreshi on 05/08/15.
+//  Copyright (c) 2015 AM. All rights reserved.
+//
+
+#ifndef Ribbit_Ribbit_Prefix_pch
+#define Ribbit_Ribbit_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Logging.h"
+#import "RBUtils.h"
+
+#endif
+
+
+#endif
