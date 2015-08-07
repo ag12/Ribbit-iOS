@@ -7,31 +7,34 @@
 //
 
 #import "EditFriendViewController.h"
+#import "RBEditFriendDataSource.h"
 
 @interface EditFriendViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) RBEditFriendDataSource *editDataSource;
+
 @end
+
 
 @implementation EditFriendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.editDataSource = [RBEditFriendDataSource new];
+    self.tableView.dataSource = self.editDataSource;
+    self.tableView.delegate = self.editDataSource;
+
+    [self.editDataSource dataSource:^{
+        [self.tableView reloadData];
+        LogTrace(@"Its all done");
+    }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

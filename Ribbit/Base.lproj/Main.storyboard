@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-ha-ySQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-ha-ySQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
@@ -53,8 +53,41 @@
                     <view key="view" contentMode="scaleToFill" id="WNO-V4-NVA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h6K-Tn-5Q4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editFriendTableViewCell" textLabel="827-al-hO2" style="IBUITableViewCellStyleDefault" id="Keo-uT-j6A">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Keo-uT-j6A" id="ANE-Cl-LUk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="827-al-hO2">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h6K-Tn-5Q4" secondAttribute="trailing" id="3bL-ei-Rkd"/>
+                            <constraint firstAttribute="top" secondItem="h6K-Tn-5Q4" secondAttribute="top" id="Noa-fb-lFd"/>
+                            <constraint firstItem="1W8-Ma-XJr" firstAttribute="top" secondItem="h6K-Tn-5Q4" secondAttribute="bottom" id="W3m-iW-eXH"/>
+                            <constraint firstItem="h6K-Tn-5Q4" firstAttribute="leading" secondItem="WNO-V4-NVA" secondAttribute="leading" id="eUe-sD-YCk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="h6K-Tn-5Q4" id="VIg-if-K8C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciM-hj-pT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +105,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-pl-Hz3" userLabel="Username">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-pl-Hz3" userLabel="Username">
                                 <rect key="frame" x="134" y="99" width="333" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="dBG-Mf-NW6"/>
@@ -81,7 +114,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-6s-yvx" userLabel="Password">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-6s-yvx" userLabel="Password">
                                 <rect key="frame" x="134" y="152" width="333" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="333" id="XMz-qy-43y"/>
@@ -254,8 +287,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-PK-iTh" userLabel="Username">
-                                <rect key="frame" x="134" y="55" width="333" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-PK-iTh" userLabel="Username">
+                                <rect key="frame" x="134" y="99" width="333" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="R7f-R5-uvO"/>
                                     <constraint firstAttribute="width" constant="333" id="S6q-RR-WX9"/>
@@ -263,8 +296,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-T2-vp4" userLabel="Password">
-                                <rect key="frame" x="134" y="108" width="333" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-T2-vp4" userLabel="Password">
+                                <rect key="frame" x="134" y="152" width="333" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="333" id="Ovt-6m-zMR"/>
                                     <constraint firstAttribute="height" constant="33" id="jwi-1h-ISl"/>
@@ -272,8 +305,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-N8-9Um">
-                                <rect key="frame" x="150" y="221" width="300" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-N8-9Um">
+                                <rect key="frame" x="150" y="263" width="300" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="D09-gu-JQp"/>
                                     <constraint firstAttribute="width" constant="300" id="OaT-WE-W89"/>
@@ -285,8 +318,8 @@
                                     <action selector="signup:" destination="1ah-yZ-Mwq" eventType="touchUpInside" id="cEA-bk-Yn7"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-Bv-plK" userLabel="Email">
-                                <rect key="frame" x="134" y="161" width="333" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-Bv-plK" userLabel="Email">
+                                <rect key="frame" x="134" y="205" width="333" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="333" id="K7z-0E-LYd"/>
                                     <constraint firstAttribute="height" constant="33" id="iwX-Qa-BqY"/>
@@ -306,7 +339,7 @@
                             <constraint firstItem="dCh-PK-iTh" firstAttribute="top" secondItem="SvC-D3-dJw" secondAttribute="bottom" constant="35" id="m1G-Bf-Jzh"/>
                             <constraint firstAttribute="centerX" secondItem="Bgn-T2-vp4" secondAttribute="centerX" id="t8P-sO-sZa"/>
                             <constraint firstItem="dCh-PK-iTh" firstAttribute="height" secondItem="aDT-Xa-YHt" secondAttribute="height" constant="55" id="wDO-YD-Fic"/>
-                            <constraint firstAttribute="centerX" secondItem="cZJ-Bv-plK" secondAttribute="centerX" constant="-0.5" id="y0U-gi-ZAg"/>
+                            <constraint firstAttribute="centerX" secondItem="cZJ-Bv-plK" secondAttribute="centerX" id="y0U-gi-ZAg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

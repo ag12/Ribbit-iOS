@@ -10,11 +10,16 @@
 
 typedef void (^SignUpInBackground)(BOOL succeeded, NSError *error);
 typedef void (^LogInInBackground)(PFUser *user, NSError *error);
+typedef void (^FetchUsers)(NSArray *users);
+typedef void (^AddFriend)(BOOL succeeded);
+
 
 
 @interface RBUserService : NSObject
 
 - (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion;
 - (void)logIn:(RBUser *)user completion:(LogInInBackground)completion;
+- (void)users:(FetchUsers)completion;
+- (void)friend:(RBUser *)user completion:(AddFriend)completion;
 
 @end

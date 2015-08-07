@@ -22,6 +22,7 @@
 		1A510E741B722F3500E777D3 /* RBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E731B722F3500E777D3 /* RBUserService.m */; };
 		1A510E771B72524300E777D3 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E761B72524300E777D3 /* FriendViewController.m */; };
 		1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E791B72525C00E777D3 /* EditFriendViewController.m */; };
+		1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */; };
 		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		1A510E761B72524300E777D3 /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendViewController.m; path = ViewController/FriendViewController.m; sourceTree = "<group>"; };
 		1A510E781B72525C00E777D3 /* EditFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditFriendViewController.h; path = ViewController/EditFriendViewController.h; sourceTree = "<group>"; };
 		1A510E791B72525C00E777D3 /* EditFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditFriendViewController.m; path = ViewController/EditFriendViewController.m; sourceTree = "<group>"; };
+		1A510E7D1B739F9A00E777D3 /* RBEditFriendDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBEditFriendDataSource.h; path = Datasource/RBEditFriendDataSource.h; sourceTree = "<group>"; };
+		1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBEditFriendDataSource.m; path = Datasource/RBEditFriendDataSource.m; sourceTree = "<group>"; };
 		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
 		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,10 +237,9 @@
 		1A510E621B721A3500E777D3 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				1A510E7B1B739F4B00E777D3 /* Edit */,
 				1A510E751B72524300E777D3 /* FriendViewController.h */,
 				1A510E761B72524300E777D3 /* FriendViewController.m */,
-				1A510E781B72525C00E777D3 /* EditFriendViewController.h */,
-				1A510E791B72525C00E777D3 /* EditFriendViewController.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -266,6 +268,25 @@
 				1A510E731B722F3500E777D3 /* RBUserService.m */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		1A510E7B1B739F4B00E777D3 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E7C1B739F5E00E777D3 /* Datasource */,
+				1A510E781B72525C00E777D3 /* EditFriendViewController.h */,
+				1A510E791B72525C00E777D3 /* EditFriendViewController.m */,
+			);
+			name = Edit;
+			sourceTree = "<group>";
+		};
+		1A510E7C1B739F5E00E777D3 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E7D1B739F9A00E777D3 /* RBEditFriendDataSource.h */,
+				1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */,
+			);
+			name = Datasource;
 			sourceTree = "<group>";
 		};
 		BE2558153D6EF4EA5EF3E7D9 /* Pods */ = {
@@ -431,6 +452,7 @@
 				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
 				1A510E741B722F3500E777D3 /* RBUserService.m in Sources */,
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
+				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
