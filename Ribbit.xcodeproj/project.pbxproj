@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A47DF521B7CD92300B8D982 /* AMTableViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */; };
+		1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF551B7CDB3A00B8D982 /* RBRecipientsDataHandler.m */; };
 		1A4F281B1B71054F00C4BC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281A1B71054F00C4BC13 /* main.m */; };
 		1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281D1B71054F00C4BC13 /* AppDelegate.m */; };
 		1A4F28241B71054F00C4BC13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28221B71054F00C4BC13 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		1A510E771B72524300E777D3 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E761B72524300E777D3 /* FriendViewController.m */; };
 		1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E791B72525C00E777D3 /* EditFriendViewController.m */; };
 		1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */; };
+		1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E831B74DD0E00E777D3 /* RBFriendsDataHandler.m */; };
+		1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E871B78D7ED00E777D3 /* CameraViewController.m */; };
 		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ribbit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A47DF501B7CD92300B8D982 /* AMTableViewDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTableViewDataSourceHelper.h; path = Utils/AMTableViewDataSourceHelper.h; sourceTree = "<group>"; };
+		1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTableViewDataSourceHelper.m; path = Utils/AMTableViewDataSourceHelper.m; sourceTree = "<group>"; };
+		1A47DF541B7CDB3A00B8D982 /* RBRecipientsDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBRecipientsDataHandler.h; path = Datasource/RBRecipientsDataHandler.h; sourceTree = "<group>"; };
+		1A47DF551B7CDB3A00B8D982 /* RBRecipientsDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBRecipientsDataHandler.m; path = Datasource/RBRecipientsDataHandler.m; sourceTree = "<group>"; };
 		1A4F28151B71054F00C4BC13 /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F28191B71054F00C4BC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4F281A1B71054F00C4BC13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +82,10 @@
 		1A510E791B72525C00E777D3 /* EditFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditFriendViewController.m; path = ViewController/EditFriendViewController.m; sourceTree = "<group>"; };
 		1A510E7D1B739F9A00E777D3 /* RBEditFriendDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBEditFriendDataSource.h; path = Datasource/RBEditFriendDataSource.h; sourceTree = "<group>"; };
 		1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBEditFriendDataSource.m; path = Datasource/RBEditFriendDataSource.m; sourceTree = "<group>"; };
+		1A510E821B74DD0E00E777D3 /* RBFriendsDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBFriendsDataHandler.h; path = Datasource/RBFriendsDataHandler.h; sourceTree = "<group>"; };
+		1A510E831B74DD0E00E777D3 /* RBFriendsDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBFriendsDataHandler.m; path = Datasource/RBFriendsDataHandler.m; sourceTree = "<group>"; };
+		1A510E861B78D7ED00E777D3 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ViewController/CameraViewController.h; sourceTree = "<group>"; };
+		1A510E871B78D7ED00E777D3 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ViewController/CameraViewController.m; sourceTree = "<group>"; };
 		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
 		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +109,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A47DF4F1B7CD90600B8D982 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				1A47DF501B7CD92300B8D982 /* AMTableViewDataSourceHelper.h */,
+				1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		1A47DF531B7CDAD200B8D982 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				1A47DF541B7CDB3A00B8D982 /* RBRecipientsDataHandler.h */,
+				1A47DF551B7CDB3A00B8D982 /* RBRecipientsDataHandler.m */,
+			);
+			name = Datasource;
+			sourceTree = "<group>";
+		};
 		1A4F280C1B71054F00C4BC13 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +194,7 @@
 		1A4F283E1B71057F00C4BC13 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				1A510E851B78D7CC00E777D3 /* Camera */,
 				1A510E621B721A3500E777D3 /* Friends */,
 				1A510E5E1B72194100E777D3 /* Inbox */,
 			);
@@ -173,6 +204,7 @@
 		1A4F283F1B71058900C4BC13 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1A47DF4F1B7CD90600B8D982 /* TableView */,
 				1A510E371B71F8E600E777D3 /* Logging */,
 				1A510E6D1B722E8200E777D3 /* RBUtils.h */,
 				1A510E6E1B722E8200E777D3 /* RBUtils.m */,
@@ -237,9 +269,8 @@
 		1A510E621B721A3500E777D3 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				1A510E801B74DCE600E777D3 /* Friends */,
 				1A510E7B1B739F4B00E777D3 /* Edit */,
-				1A510E751B72524300E777D3 /* FriendViewController.h */,
-				1A510E761B72524300E777D3 /* FriendViewController.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -287,6 +318,35 @@
 				1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */,
 			);
 			name = Datasource;
+			sourceTree = "<group>";
+		};
+		1A510E801B74DCE600E777D3 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E811B74DCF100E777D3 /* DataSource */,
+				1A510E751B72524300E777D3 /* FriendViewController.h */,
+				1A510E761B72524300E777D3 /* FriendViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		1A510E811B74DCF100E777D3 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1A510E821B74DD0E00E777D3 /* RBFriendsDataHandler.h */,
+				1A510E831B74DD0E00E777D3 /* RBFriendsDataHandler.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		1A510E851B78D7CC00E777D3 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				1A47DF531B7CDAD200B8D982 /* Datasource */,
+				1A510E861B78D7ED00E777D3 /* CameraViewController.h */,
+				1A510E871B78D7ED00E777D3 /* CameraViewController.m */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 		BE2558153D6EF4EA5EF3E7D9 /* Pods */ = {
@@ -357,6 +417,7 @@
 				TargetAttributes = {
 					1A4F28141B71054F00C4BC13 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = UK5BX53XR9;
 					};
 					1A4F282D1B71054F00C4BC13 = {
 						CreatedOnToolsVersion = 6.4;
@@ -443,13 +504,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A510E651B72263000E777D3 /* LoginViewController.m in Sources */,
+				1A47DF521B7CD92300B8D982 /* AMTableViewDataSourceHelper.m in Sources */,
 				1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */,
 				1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */,
 				1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */,
+				1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */,
 				1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */,
 				1A510E771B72524300E777D3 /* FriendViewController.m in Sources */,
 				1A4F281B1B71054F00C4BC13 /* main.m in Sources */,
 				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
+				1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */,
+				1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */,
 				1A510E741B722F3500E777D3 /* RBUserService.m in Sources */,
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
 				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
@@ -596,9 +661,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Ribbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -609,9 +676,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Ribbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

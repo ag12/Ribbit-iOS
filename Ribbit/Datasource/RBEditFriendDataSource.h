@@ -10,6 +10,7 @@
 typedef void (^Users)();
 
 @interface RBEditFriendDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+- (instancetype) initWithFriends:(NSArray *)friends;
 - (void) dataSource:(Users)completion;
 
 @end

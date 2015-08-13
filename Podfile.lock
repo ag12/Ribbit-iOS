@@ -9,14 +9,20 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - SAMCache (0.3.0)
+  - TMCache (2.1.0)
 
 DEPENDENCIES:
   - Parse
   - ReactiveCocoa
+  - SAMCache
+  - TMCache
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SAMCache: 418d532c4ecab283e7758576856aeab461a69dde
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
 COCOAPODS: 0.38.2

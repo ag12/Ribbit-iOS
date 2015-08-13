@@ -15,28 +15,27 @@
 @interface InboxViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOut;
-
+@property (nonatomic) RBUser *user;
 @end
 
 @implementation InboxViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    RBUser *user = [RBUser currentUser];
-    if (user) {
-        LogTrace(@"Online user: %@", user);
-    } else {
-        LogTrace(@"Offline");
-        self.navigationItem.hidesBackButton = YES;
-        [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
-    }
 
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    LogTrace(@"ViewDidLoad");
+    _user = [RBUser currentUser];
+    if (_user) {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
+    } else {
+        self.navigationItem.hidesBackButton = YES;
+        [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
+    }
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {

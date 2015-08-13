@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EditFriendViewController : UIViewController
+@property (nonatomic) NSArray *friends;
 
 @end

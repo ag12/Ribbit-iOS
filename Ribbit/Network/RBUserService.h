@@ -11,6 +11,7 @@
 typedef void (^SignUpInBackground)(BOOL succeeded, NSError *error);
 typedef void (^LogInInBackground)(PFUser *user, NSError *error);
 typedef void (^FetchUsers)(NSArray *users);
+typedef void (^FetchFriends)(NSArray *friends);
 typedef void (^AddFriend)(BOOL succeeded);
 
 
@@ -20,6 +21,8 @@ typedef void (^AddFriend)(BOOL succeeded);
 - (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion;
 - (void)logIn:(RBUser *)user completion:(LogInInBackground)completion;
 - (void)users:(FetchUsers)completion;
-- (void)friend:(RBUser *)user completion:(AddFriend)completion;
+- (void)fetchFriends:(FetchFriends)completion;
+- (void)addFriend:(RBUser *)user completion:(AddFriend)completion;
+- (void)removeFriend:(RBUser *)user completion:(AddFriend)completion;
 
 @end

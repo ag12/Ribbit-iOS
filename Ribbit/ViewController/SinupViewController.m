@@ -56,7 +56,6 @@
         user.username = username;
         user.password = password;
         user.email = email;
-        user.name = @"Ole";
         @weakify(self);
         [[RBUserService new] signUp:user completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {

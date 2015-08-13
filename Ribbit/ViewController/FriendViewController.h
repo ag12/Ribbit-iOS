@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RBFriendsDataHandler.h"
 
 @interface FriendViewController : UIViewController
-
+@property (nonatomic) RBFriendsDataHandler *dataHandler;
 @end

@@ -4,6 +4,8 @@
 target 'Ribbit' do
     pod 'Parse'
     pod 'ReactiveCocoa'
+    pod 'TMCache'
+    pod 'SAMCache'
 end
 
 target 'RibbitTests' do

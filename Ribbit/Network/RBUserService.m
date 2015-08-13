@@ -8,14 +8,18 @@
 
 #import "RBUserService.h"
 #import <Parse/Parse.h>
+#import <TMCache/TMCache.h>
+#import <SAMCache/SAMCache.h>
 
 
 #define  kUsername @"username"
+#define  kFriendsCache @"friendsCache"
 #define  kFriendsRelation @"friendsRelation"
 
 
 @interface RBUserService ()
 @property (nonatomic) RBUser *currentUser;
+@property (nonatomic) PFRelation *friendsRelation;
 @end
 
 @implementation RBUserService
@@ -24,10 +28,11 @@
 
 #pragma mark - init
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _currentUser = [RBUser currentUser];
+        _friendsRelation = [_currentUser relationForKey:kFriendsRelation];
     }
     return self;
 }
@@ -80,7 +85,7 @@
 
 #pragma mark - Friends
 
-- (void)friend:(RBUser *)user completion:(AddFriend)completion {
+- (void)addFriend:(RBUser *)user completion:(AddFriend)completion {
     PFRelation *friends = [self.currentUser relationForKey:kFriendsRelation];
     [friends addObject:user];
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
@@ -89,6 +94,33 @@
             return;
         }
         completion(NO);
+    }];
+}
+
+- (void)removeFriend:(RBUser *)user completion:(AddFriend)completion {
+    PFRelation *friends = [self.currentUser relationForKey:kFriendsRelation];
+    [friends removeObject:user];
+    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            completion(YES);
+            return;
+        }
+        completion(NO);
+    }];
+}
+
+- (void)fetchFriends:(FetchFriends)completion {
+    PFQuery *query = [_friendsRelation query];
+    [query orderByAscending:kUsername];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *friends, NSError *error){
+        if (error) {
+            LogDebug(@"Error while fetching friends %@, %@", error, [error userInfo]);
+            completion(nil);
+            return;
+        } else {
+            LogTrace(@"Success while fetching friends");
+            completion(friends);
+        }
     }];
 }
 
