@@ -81,13 +81,13 @@
         }];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [_service addFriend:user completion:^(BOOL succeeded) {
             if (succeeded) {
             } else {
             }
         }];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Utility

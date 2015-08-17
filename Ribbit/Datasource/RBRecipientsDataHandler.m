@@ -50,6 +50,16 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    RBUser *user = [_recipients objectAtIndex:indexPath.row];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [_recipients removeObject:user.objectId];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [_recipients addObject:user.objectId];
+    }
+    LogTrace(@"%@", _recipients);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

@@ -13,6 +13,7 @@
 @interface CameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSString *videoFilePath;
 @property (nonatomic) RBRecipientsDataHandler *dataHandler;
@@ -32,11 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     LogTrace(@"viewDidLoad");
-    self.dataHandler = [RBRecipientsDataHandler new];
-    self.tableView.dataSource = self.dataHandler;
-    self.tableView.delegate = self.dataHandler;
+    _dataHandler = [RBRecipientsDataHandler new];
+    
+    _tableView.dataSource = _dataHandler;
+    _tableView.delegate = _dataHandler;
+
     [self.dataHandler dataSource:^{
-        [self.tableView reloadData];
+        [_activityIndicator stopAnimating];
+        [_tableView reloadData];
         LogTrace(@"Its all done");
     }];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
