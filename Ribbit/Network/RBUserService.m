@@ -28,6 +28,20 @@
 
 #pragma mark - init
 
+
++ (instancetype)service {
+    
+    static RBUserService *service;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        service = [RBUserService new];
+    });
+    service.currentUser = [RBUser currentUser];
+    service.friendsRelation = [service.currentUser relationForKey:kFriendsRelation];
+    return service;
+}
+
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -90,10 +104,14 @@
     [friends addObject:user];
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
-            completion(YES);
+            if (completion) {
+                completion(YES);
+            }
             return;
         }
-        completion(NO);
+        if (completion) {
+            completion(NO);
+        }
     }];
 }
 
@@ -102,10 +120,14 @@
     [friends removeObject:user];
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
-            completion(YES);
+            if (completion) {
+                completion(YES);
+            }
             return;
         }
-        completion(NO);
+        if (completion) {
+            completion(NO);
+        }
     }];
 }
 

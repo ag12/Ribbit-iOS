@@ -12,5 +12,4 @@ typedef void (^Recipients)();
 @interface RBRecipientsDataHandler : NSObject <UITableViewDataSource, UITableViewDelegate>
 - (void)dataSource:(Recipients)completion;
 @property (nonatomic) NSMutableArray *recipients;
-
 @end

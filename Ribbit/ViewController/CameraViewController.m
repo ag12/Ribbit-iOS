@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSString *videoFilePath;
 @property (nonatomic) RBRecipientsDataHandler *dataHandler;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *send;
 
 @end
 
@@ -24,24 +26,25 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    LogTrace(@"viewWillAppear");
     [self imagePickerControllerSettings];
     if (!_image && !_videoFilePath) {
         [self presentViewController:_imagePickerController animated:YES completion:nil];
     }
+    if (self.dataHandler) {
+        [self.dataHandler dataSource:^{
+            [self.tableView reloadData];
+        }];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LogTrace(@"viewDidLoad");
     _dataHandler = [RBRecipientsDataHandler new];
-    
     _tableView.dataSource = _dataHandler;
     _tableView.delegate = _dataHandler;
 
     [self.dataHandler dataSource:^{
         [_activityIndicator stopAnimating];
         [_tableView reloadData];
-        LogTrace(@"Its all done");
     }];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -71,7 +74,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    LogTrace(@"%@", info);
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
 
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
@@ -84,11 +86,23 @@
     } else {
         //Video taken or selected
         _videoFilePath = [NSString stringWithFormat:@"%@", [[info objectForKey:UIImagePickerControllerMediaURL] path]];
-        LogTrace("%@", _videoFilePath);
         if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(_videoFilePath)) {
             UISaveVideoAtPathToSavedPhotosAlbum(_videoFilePath, nil, nil, nil);
         }
     }
     [_imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - IBActions 
+
+- (IBAction)cancel:(id)sender {
+    _image = nil;
+    _videoFilePath = nil;
+    [_dataHandler.recipients removeAllObjects];
+    [self.tabBarController setSelectedIndex:0];
+}
+
+- (IBAction)send:(id)sender {
+}
+
 @end

@@ -8,11 +8,12 @@
 
 #import "RBEditFriendDataSource.h"
 #import "RBUserService.h"
+#import <ReactiveCocoa/RACEXTScope.h>
 
 
 @interface RBEditFriendDataSource ()
 @property (nonatomic) NSArray *users;
-@property (nonatomic) NSArray *friends;
+@property (nonatomic) NSMutableArray *friends;
 @property (nonatomic) RBUserService *service;
 @end
 
@@ -22,7 +23,12 @@
 - (instancetype) initWithFriends:(NSArray *)friends {
     if (self) {
         _service = [RBUserService new];
-        _friends = friends;
+        if (friends) {
+            _friends = [NSMutableArray arrayWithArray:friends];
+        } else {
+            //_friends = nil;
+            LogTrace(@"LOL");
+        }
     }
     return self;
 }
@@ -30,10 +36,21 @@
 #pragma mark - Source
 
 - (void) dataSource:(Users)completion {
-    [_service users:^(NSArray *users) {
-        _users = users;
-        completion();
-    }];
+    if (!_friends) {
+        [_service fetchFriends:^(NSArray *friends) {
+            _friends = [NSMutableArray arrayWithArray:friends];
+            [_service users:^(NSArray *users) {
+                _users = users;
+                completion();
+            }];
+        }];
+
+    } else {
+        [_service users:^(NSArray *users) {
+            _users = users;
+            completion();
+        }];
+    }
 }
 #pragma mark - Utility Source
 
@@ -76,16 +93,12 @@
     RBUser *user = [_users objectAtIndex:indexPath.row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_service removeFriend:user completion:^(BOOL succeeded) {
-
-        }];
+        [_friends removeObject:user];
+        [_service removeFriend:user completion:nil];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [_service addFriend:user completion:^(BOOL succeeded) {
-            if (succeeded) {
-            } else {
-            }
-        }];
+        [self.friends addObject:user];
+        [_service addFriend:user completion:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

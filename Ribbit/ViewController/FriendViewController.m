@@ -15,16 +15,6 @@
 
 @implementation FriendViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    LogTrace(@"viewWillAppear");
-    if (self.dataHandler) {
-        [self.dataHandler dataSource:^{
-            [self.tableView reloadData];
-            LogTrace(@"Its all done");
-        }];
-    }
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataHandler = [RBFriendsDataHandler new];
@@ -32,9 +22,17 @@
     self.tableView.delegate = self.dataHandler;
     [self.dataHandler dataSource:^{
         [self.tableView reloadData];
-        LogTrace(@"Its all done");
     }];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.dataHandler) {
+        [self.dataHandler dataSource:^{
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +52,4 @@
         editFriendViewController.friends = self.dataHandler.friends;
     }
 }
-
-
 @end

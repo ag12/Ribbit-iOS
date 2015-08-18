@@ -18,6 +18,7 @@ typedef void (^AddFriend)(BOOL succeeded);
 
 @interface RBUserService : NSObject
 
++ (instancetype)service;
 - (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion;
 - (void)logIn:(RBUser *)user completion:(LogInInBackground)completion;
 - (void)users:(FetchUsers)completion;

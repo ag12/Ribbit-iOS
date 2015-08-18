@@ -22,7 +22,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    _user = [RBUser currentUser];
+    if (_user) {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -20,6 +20,7 @@
 - (instancetype)init {
     if (self) {
         _service = [RBUserService new];
+        _friends = nil;
     }
     return self;
 }

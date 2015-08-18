@@ -254,9 +254,22 @@
                             <constraint firstAttribute="centerY" secondItem="PfZ-wG-IyH" secondAttribute="centerY" id="YPg-8D-b5E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="RCa-kk-NCk"/>
+                    <navigationItem key="navigationItem" title="Camera" id="RCa-kk-NCk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j8e-mB-etk">
+                            <connections>
+                                <action selector="cancel:" destination="s6i-rg-DMk" id="RWo-XP-i6G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vEO-uS-d5e">
+                            <connections>
+                                <action selector="send:" destination="s6i-rg-DMk" id="GaQ-Hg-4wV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="PfZ-wG-IyH" id="Ucx-k4-Bdy"/>
+                        <outlet property="cancel" destination="j8e-mB-etk" id="qsP-Rf-bYl"/>
+                        <outlet property="send" destination="vEO-uS-d5e" id="jfF-x8-q7c"/>
                         <outlet property="tableView" destination="emx-Eh-OWr" id="oYD-mS-IdD"/>
                     </connections>
                 </viewController>
