@@ -7,7 +7,7 @@
 //
 
 #import "SinupViewController.h"
-#import "RBUserService.h"
+#import "RBService.h"
 #import <ReactiveCocoa/RACEXTScope.h>
 
 
@@ -57,7 +57,7 @@
         user.password = password;
         user.email = email;
         @weakify(self);
-        [[RBUserService new] signUp:user completion:^(BOOL succeeded, NSError *error) {
+        [[RBService new] signUp:user completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 @strongify(self);
                 [self.navigationController popToRootViewControllerAnimated:YES];

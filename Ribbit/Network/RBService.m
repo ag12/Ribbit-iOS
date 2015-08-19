@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import "RBUserService.h"
+#import "RBService.h"
 #import <Parse/Parse.h>
 #import <TMCache/TMCache.h>
 #import <SAMCache/SAMCache.h>
+#import "RBMessage.h"
+#import "RBUploadData.h"
 
 
 #define  kUsername @"username"
@@ -17,12 +19,11 @@
 #define  kFriendsRelation @"friendsRelation"
 
 
-@interface RBUserService ()
-@property (nonatomic) RBUser *currentUser;
+@interface RBService ()
 @property (nonatomic) PFRelation *friendsRelation;
 @end
 
-@implementation RBUserService
+@implementation RBService
 
 
 
@@ -31,17 +32,17 @@
 
 + (instancetype)service {
     
-    static RBUserService *service;
+    static RBService *service;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        service = [RBUserService new];
+        service = [RBService new];
     });
     service.currentUser = [RBUser currentUser];
     service.friendsRelation = [service.currentUser relationForKey:kFriendsRelation];
     return service;
 }
 
-
+/*
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -50,7 +51,7 @@
     }
     return self;
 }
-
+*/
 #pragma mark - Sign up 
 
 - (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion {
@@ -142,6 +143,29 @@
         } else {
             LogTrace(@"Success while fetching friends");
             completion(friends);
+        }
+    }];
+}
+
+#pragma mark - File 
+- (void)uploadFile:(UIImage *)image recipients:(NSArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
+
+    RBUploadData *data = [[RBUploadData alloc] initWithImage:image user:self.currentUser recipients:recipients];
+    [[data getFile] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+
+            RBMessage *message = [[RBMessage alloc] initWithFile:[data getFile] data:data];
+            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if (succeeded) {
+                    success(succeeded);
+                    return;
+                }else {
+                    failure();
+                }
+            }];
+
+        } else {
+            failure();
         }
     }];
 }

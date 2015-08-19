@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RBUser.h"
+#import "RBMessage.h"
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -36,6 +37,7 @@
 
 
     [RBUser registerSubclass];
+    [RBMessage registerSubclass];
     [Parse setApplicationId:@"5pTIb5VocsHO4wlNQwXOvmFI16TXLI8HsVp9qC4l"
                   clientKey:@"Z9fJiVCWb6qizBYDn3Qjf7Prhi9jrkOw2MaDoCNp"];
 

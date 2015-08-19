@@ -9,6 +9,8 @@
 #import "CameraViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "RBRecipientsDataHandler.h"
+#import "RBUploadData.h"
+
 
 @interface CameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,11 +31,8 @@
     [self imagePickerControllerSettings];
     if (!_image && !_videoFilePath) {
         [self presentViewController:_imagePickerController animated:YES completion:nil];
-    }
-    if (self.dataHandler) {
-        [self.dataHandler dataSource:^{
-            [self.tableView reloadData];
-        }];
+    } else {
+        _cancel.enabled = _send.enabled = YES;
     }
 }
 - (void)viewDidLoad {
@@ -95,14 +94,57 @@
 
 #pragma mark - IBActions 
 
-- (IBAction)cancel:(id)sender {
+- (void)reset {
     _image = nil;
     _videoFilePath = nil;
     [_dataHandler.recipients removeAllObjects];
     [self.tabBarController setSelectedIndex:0];
 }
 
-- (IBAction)send:(id)sender {
+- (IBAction)cancel:(id)sender {
+    [self reset];
 }
 
+- (IBAction)send:(id)sender {
+
+    if (!_image && !_videoFilePath.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Try again!" message:@"Please capture a video or a photo to share!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        [self presentViewController:_imagePickerController animated:YES completion:nil];
+    } else {
+        [self uploadMessage];
+    }
+}
+
+- (void)uploadMessage {
+    LogTrace(@"%@", _dataHandler.recipients);
+
+    if (_image) {
+        //Photo
+        UIImage *image = [self resizeImage:_image width:230.0f height:480.0f];
+        [self.dataHandler.service uploadFile:image recipients:self.dataHandler.recipients success:^(BOOL succeeded) {
+            [self reset];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"NICE!" message:@"Nailed it!!!" delegate:self cancelButtonTitle:@"Pica, pica!" otherButtonTitles:nil];
+            [alertView show];
+        } failure:^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Obs!" message:@"Please try sending your message again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
+        }];
+
+    } else {
+
+    }
+}
+
+- (UIImage *)resizeImage:(UIImage *)image width:(float)width height:(float)height {
+
+
+    CGSize newSize = CGSizeMake(width, height);
+    CGRect rectangle = CGRectMake(0, 0, width, height);
+    UIGraphicsBeginImageContext(newSize);
+    [_image drawInRect:rectangle];
+    UIImage *resizedImaged = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resizedImaged;
+}
 @end

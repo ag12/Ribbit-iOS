@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "RBUserService.h"
+#import "RBService.h"
 #import <ReactiveCocoa/RACEXTScope.h>
 
 
@@ -62,7 +62,7 @@
         user.username = username;
         user.password = password;
         @weakify(self);
-        [[RBUserService new] logIn:user completion:^(PFUser *user, NSError *error) {
+        [[RBService new] logIn:user completion:^(PFUser *user, NSError *error) {
             if (user) {
                 @strongify(self);
                 [self.navigationController popToRootViewControllerAnimated:YES];

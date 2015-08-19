@@ -255,12 +255,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="RCa-kk-NCk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j8e-mB-etk">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="cancel" id="j8e-mB-etk">
                             <connections>
                                 <action selector="cancel:" destination="s6i-rg-DMk" id="RWo-XP-i6G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vEO-uS-d5e">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="vEO-uS-d5e">
                             <connections>
                                 <action selector="send:" destination="s6i-rg-DMk" id="GaQ-Hg-4wV"/>
                             </connections>

@@ -7,14 +7,14 @@
 //
 
 #import "RBEditFriendDataSource.h"
-#import "RBUserService.h"
+#import "RBService.h"
 #import <ReactiveCocoa/RACEXTScope.h>
 
 
 @interface RBEditFriendDataSource ()
 @property (nonatomic) NSArray *users;
 @property (nonatomic) NSMutableArray *friends;
-@property (nonatomic) RBUserService *service;
+@property (nonatomic) RBService *service;
 @end
 
 @implementation RBEditFriendDataSource
@@ -22,7 +22,7 @@
 #pragma mark - init
 - (instancetype) initWithFriends:(NSArray *)friends {
     if (self) {
-        _service = [RBUserService new];
+        _service = [RBService new];
         if (friends) {
             _friends = [NSMutableArray arrayWithArray:friends];
         } else {

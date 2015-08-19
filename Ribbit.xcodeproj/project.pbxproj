@@ -15,18 +15,19 @@
 		1A4F28261B71054F00C4BC13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28251B71054F00C4BC13 /* Images.xcassets */; };
 		1A4F28291B71054F00C4BC13 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F28271B71054F00C4BC13 /* LaunchScreen.xib */; };
 		1A4F28351B71054F00C4BC13 /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F28341B71054F00C4BC13 /* RibbitTests.m */; };
-		1A510E561B7203D900E777D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A510E581B7203D900E777D3 /* Localizable.strings */; };
 		1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E601B72196A00E777D3 /* InboxViewController.m */; };
 		1A510E651B72263000E777D3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E641B72263000E777D3 /* LoginViewController.m */; };
 		1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E671B72264C00E777D3 /* SinupViewController.m */; };
 		1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E6B1B722DE900E777D3 /* RBUser.m */; };
 		1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E6E1B722E8200E777D3 /* RBUtils.m */; };
-		1A510E741B722F3500E777D3 /* RBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E731B722F3500E777D3 /* RBUserService.m */; };
+		1A510E741B722F3500E777D3 /* RBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E731B722F3500E777D3 /* RBService.m */; };
 		1A510E771B72524300E777D3 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E761B72524300E777D3 /* FriendViewController.m */; };
 		1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E791B72525C00E777D3 /* EditFriendViewController.m */; };
 		1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E7E1B739F9A00E777D3 /* RBEditFriendDataSource.m */; };
 		1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E831B74DD0E00E777D3 /* RBFriendsDataHandler.m */; };
 		1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A510E871B78D7ED00E777D3 /* CameraViewController.m */; };
+		1ADF52961B835CB200CAB9B9 /* RBUploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52951B835CB200CAB9B9 /* RBUploadData.m */; };
+		1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52991B8367D700CAB9B9 /* RBMessage.m */; };
 		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
 /* End PBXBuildFile section */
 
@@ -61,9 +62,6 @@
 		1A510E391B71F99600E777D3 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logging.h; path = Utils/Logging.h; sourceTree = "<group>"; };
 		1A510E521B72039400E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/Main.strings"; sourceTree = "<group>"; };
 		1A510E531B72039400E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		1A510E571B7203D900E777D3 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		1A510E591B7203EC00E777D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1A510E5B1B72042400E777D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A510E5F1B72196A00E777D3 /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InboxViewController.h; path = ViewController/InboxViewController.h; sourceTree = "<group>"; };
 		1A510E601B72196A00E777D3 /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InboxViewController.m; path = ViewController/InboxViewController.m; sourceTree = "<group>"; };
 		1A510E631B72263000E777D3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/LoginViewController.h; sourceTree = "<group>"; };
@@ -74,8 +72,8 @@
 		1A510E6B1B722DE900E777D3 /* RBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUser.m; path = Entity/RBUser.m; sourceTree = "<group>"; };
 		1A510E6D1B722E8200E777D3 /* RBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUtils.h; path = Utils/RBUtils.h; sourceTree = "<group>"; };
 		1A510E6E1B722E8200E777D3 /* RBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUtils.m; path = Utils/RBUtils.m; sourceTree = "<group>"; };
-		1A510E721B722F3500E777D3 /* RBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUserService.h; path = Network/RBUserService.h; sourceTree = "<group>"; };
-		1A510E731B722F3500E777D3 /* RBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUserService.m; path = Network/RBUserService.m; sourceTree = "<group>"; };
+		1A510E721B722F3500E777D3 /* RBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBService.h; path = Network/RBService.h; sourceTree = "<group>"; };
+		1A510E731B722F3500E777D3 /* RBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBService.m; path = Network/RBService.m; sourceTree = "<group>"; };
 		1A510E751B72524300E777D3 /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendViewController.h; path = ViewController/FriendViewController.h; sourceTree = "<group>"; };
 		1A510E761B72524300E777D3 /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendViewController.m; path = ViewController/FriendViewController.m; sourceTree = "<group>"; };
 		1A510E781B72525C00E777D3 /* EditFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditFriendViewController.h; path = ViewController/EditFriendViewController.h; sourceTree = "<group>"; };
@@ -86,6 +84,10 @@
 		1A510E831B74DD0E00E777D3 /* RBFriendsDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBFriendsDataHandler.m; path = Datasource/RBFriendsDataHandler.m; sourceTree = "<group>"; };
 		1A510E861B78D7ED00E777D3 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ViewController/CameraViewController.h; sourceTree = "<group>"; };
 		1A510E871B78D7ED00E777D3 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ViewController/CameraViewController.m; sourceTree = "<group>"; };
+		1ADF52941B835CB200CAB9B9 /* RBUploadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBUploadData.h; path = Entity/RBUploadData.h; sourceTree = "<group>"; };
+		1ADF52951B835CB200CAB9B9 /* RBUploadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBUploadData.m; path = Entity/RBUploadData.m; sourceTree = "<group>"; };
+		1ADF52981B8367D700CAB9B9 /* RBMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBMessage.h; path = Entity/RBMessage.h; sourceTree = "<group>"; };
+		1ADF52991B8367D700CAB9B9 /* RBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBMessage.m; path = Entity/RBMessage.m; sourceTree = "<group>"; };
 		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
 		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +171,6 @@
 				1A4F28191B71054F00C4BC13 /* Info.plist */,
 				1A4F281A1B71054F00C4BC13 /* main.m */,
 				1A4F284C1B71F04D00C4BC13 /* Ribbit-Prefix.pch */,
-				1A510E581B7203D900E777D3 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,6 +281,10 @@
 			children = (
 				1A510E6A1B722DE900E777D3 /* RBUser.h */,
 				1A510E6B1B722DE900E777D3 /* RBUser.m */,
+				1ADF52941B835CB200CAB9B9 /* RBUploadData.h */,
+				1ADF52951B835CB200CAB9B9 /* RBUploadData.m */,
+				1ADF52981B8367D700CAB9B9 /* RBMessage.h */,
+				1ADF52991B8367D700CAB9B9 /* RBMessage.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -295,8 +300,8 @@
 		1A510E711B722F1900E777D3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				1A510E721B722F3500E777D3 /* RBUserService.h */,
-				1A510E731B722F3500E777D3 /* RBUserService.m */,
+				1A510E721B722F3500E777D3 /* RBService.h */,
+				1A510E731B722F3500E777D3 /* RBService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -450,7 +455,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4F28241B71054F00C4BC13 /* Main.storyboard in Resources */,
-				1A510E561B7203D900E777D3 /* Localizable.strings in Resources */,
 				1A4F28291B71054F00C4BC13 /* LaunchScreen.xib in Resources */,
 				1A4F28261B71054F00C4BC13 /* Images.xcassets in Resources */,
 			);
@@ -510,13 +514,15 @@
 				1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */,
 				1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */,
 				1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */,
+				1ADF52961B835CB200CAB9B9 /* RBUploadData.m in Sources */,
 				1A510E771B72524300E777D3 /* FriendViewController.m in Sources */,
 				1A4F281B1B71054F00C4BC13 /* main.m in Sources */,
 				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
 				1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */,
 				1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */,
-				1A510E741B722F3500E777D3 /* RBUserService.m in Sources */,
+				1A510E741B722F3500E777D3 /* RBService.m in Sources */,
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
+				1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */,
 				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,16 +562,6 @@
 				1A510E531B72039400E777D3 /* nb-NO */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		1A510E581B7203D900E777D3 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A510E571B7203D900E777D3 /* nb-NO */,
-				1A510E591B7203EC00E777D3 /* en */,
-				1A510E5B1B72042400E777D3 /* Base */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

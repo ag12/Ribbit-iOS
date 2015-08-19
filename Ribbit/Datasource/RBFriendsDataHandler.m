@@ -7,10 +7,10 @@
 //
 
 #import "RBFriendsDataHandler.h"
-#import "RBUserService.h"
+#import "RBService.h"
 
 @interface RBFriendsDataHandler ()
-@property (nonatomic) RBUserService *service;
+@property (nonatomic) RBService *service;
 @end
 
 @implementation RBFriendsDataHandler
@@ -19,7 +19,7 @@
 
 - (instancetype)init {
     if (self) {
-        _service = [RBUserService new];
+        _service = [RBService new];
         _friends = nil;
     }
     return self;

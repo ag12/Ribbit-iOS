@@ -7,10 +7,8 @@
 //
 
 #import "RBRecipientsDataHandler.h"
-#import "RBUserService.h"
 
 @interface RBRecipientsDataHandler() 
-@property (nonatomic) RBUserService *service;
 @property (nonatomic) NSArray *data;
 @end
 
@@ -20,21 +18,23 @@
 
 - (instancetype)init {
     if (self) {
-        _service = [RBUserService service];
+        _service = [RBService service];
     }
     return self;
 }
 
 - (void) dataSource:(Recipients)completion {
-    [_service fetchFriends:^(NSArray *recipients) {
-        _data = recipients;
+    [_service fetchFriends:^(NSArray *friends) {
+        _data = friends;
         /*
         if (_recipients) {
             _recipients = [NSMutableArray arrayWithArray:_recipients];
         } else {
             _recipients = [NSMutableArray array];
         }*/
-         _recipients = [NSMutableArray array];
+        if (!_recipients) {
+            _recipients = [NSMutableArray array];
+        }
         completion();
     }];
 }
