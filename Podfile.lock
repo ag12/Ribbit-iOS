@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.2.0)
+  - MBProgressHUD (0.9.1)
   - Parse (1.7.5.3):
     - Bolts/Tasks (>= 1.2.0)
   - ReactiveCocoa (2.5):
@@ -13,6 +14,7 @@ PODS:
   - TMCache (2.1.0)
 
 DEPENDENCIES:
+  - MBProgressHUD
   - Parse
   - ReactiveCocoa
   - SAMCache
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SAMCache: 418d532c4ecab283e7758576856aeab461a69dde

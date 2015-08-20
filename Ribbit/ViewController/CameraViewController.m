@@ -10,7 +10,8 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "RBRecipientsDataHandler.h"
 #import "RBUploadData.h"
-
+#import "MBProgressHUD.h"
+#import "RACEXTScope.h"
 
 @interface CameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -98,6 +99,7 @@
     _image = nil;
     _videoFilePath = nil;
     [_dataHandler.recipients removeAllObjects];
+    [_tableView reloadData];
     [self.tabBarController setSelectedIndex:0];
 }
 
@@ -113,6 +115,7 @@
         [self presentViewController:_imagePickerController animated:YES completion:nil];
     } else {
         [self uploadMessage];
+        
     }
 }
 
@@ -120,9 +123,13 @@
     LogTrace(@"%@", _dataHandler.recipients);
 
     if (_image) {
-        //Photo
         UIImage *image = [self resizeImage:_image width:230.0f height:480.0f];
+        [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+
+        @weakify(self);
         [self.dataHandler.service uploadFile:image recipients:self.dataHandler.recipients success:^(BOOL succeeded) {
+            @strongify(self);
+            [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
             [self reset];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"NICE!" message:@"Nailed it!!!" delegate:self cancelButtonTitle:@"Pica, pica!" otherButtonTitles:nil];
             [alertView show];

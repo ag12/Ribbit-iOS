@@ -32,9 +32,7 @@
         } else {
             _recipients = [NSMutableArray array];
         }*/
-        if (!_recipients) {
-            _recipients = [NSMutableArray array];
-        }
+         _recipients = [NSMutableArray array];
         completion();
     }];
 }
@@ -93,5 +91,8 @@
 }
 - (BOOL)isRecipients:(RBUser *)user {
     return [_recipients containsObject:user.objectId];
+}
+-(void)reset {
+    _recipients = [NSMutableArray array];
 }
 @end

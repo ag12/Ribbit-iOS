@@ -6,6 +6,7 @@ target 'Ribbit' do
     pod 'ReactiveCocoa'
     pod 'TMCache'
     pod 'SAMCache'
+    pod 'MBProgressHUD'
 end
 
 target 'RibbitTests' do

@@ -14,4 +14,5 @@ typedef void (^Recipients)();
 - (void)dataSource:(Recipients)completion;
 @property (nonatomic) NSMutableArray *recipients;
 @property (nonatomic) RBService *service;
+-(void)reset;
 @end
