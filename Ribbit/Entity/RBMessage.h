@@ -17,4 +17,6 @@
 @property (nonatomic) NSArray *recipients;
 @property (nonatomic) NSString *senderId;
 @property (nonatomic) NSString *senderName;
+
++ (NSString *)recipients;
 @end

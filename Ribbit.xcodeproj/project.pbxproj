@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A368C201B904806002C2301 /* RBInboxDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */; };
+		1A368C241B905809002C2301 /* RBInboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C231B905809002C2301 /* RBInboxTableViewCell.m */; };
+		1A368C281B9059C1002C2301 /* RBDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C271B9059C1002C2301 /* RBDataHandler.m */; };
 		1A47DF521B7CD92300B8D982 /* AMTableViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */; };
 		1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF551B7CDB3A00B8D982 /* RBRecipientsDataHandler.m */; };
 		1A4F281B1B71054F00C4BC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281A1B71054F00C4BC13 /* main.m */; };
@@ -43,6 +46,12 @@
 
 /* Begin PBXFileReference section */
 		14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ribbit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A368C1E1B904806002C2301 /* RBInboxDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBInboxDataHandler.h; path = Datasource/RBInboxDataHandler.h; sourceTree = "<group>"; };
+		1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBInboxDataHandler.m; path = Datasource/RBInboxDataHandler.m; sourceTree = "<group>"; };
+		1A368C221B905809002C2301 /* RBInboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBInboxTableViewCell.h; path = Cell/RBInboxTableViewCell.h; sourceTree = "<group>"; };
+		1A368C231B905809002C2301 /* RBInboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBInboxTableViewCell.m; path = Cell/RBInboxTableViewCell.m; sourceTree = "<group>"; };
+		1A368C261B9059C1002C2301 /* RBDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBDataHandler.h; path = Utils/RBDataHandler.h; sourceTree = "<group>"; };
+		1A368C271B9059C1002C2301 /* RBDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBDataHandler.m; path = Utils/RBDataHandler.m; sourceTree = "<group>"; };
 		1A47DF501B7CD92300B8D982 /* AMTableViewDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTableViewDataSourceHelper.h; path = Utils/AMTableViewDataSourceHelper.h; sourceTree = "<group>"; };
 		1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTableViewDataSourceHelper.m; path = Utils/AMTableViewDataSourceHelper.m; sourceTree = "<group>"; };
 		1A47DF541B7CDB3A00B8D982 /* RBRecipientsDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBRecipientsDataHandler.h; path = Datasource/RBRecipientsDataHandler.h; sourceTree = "<group>"; };
@@ -111,6 +120,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A368C1D1B9047D8002C2301 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1A368C1E1B904806002C2301 /* RBInboxDataHandler.h */,
+				1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		1A368C211B9057E1002C2301 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1A368C221B905809002C2301 /* RBInboxTableViewCell.h */,
+				1A368C231B905809002C2301 /* RBInboxTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		1A368C251B9059A8002C2301 /* DataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				1A368C261B9059C1002C2301 /* RBDataHandler.h */,
+				1A368C271B9059C1002C2301 /* RBDataHandler.m */,
+			);
+			name = DataHandler;
+			sourceTree = "<group>";
+		};
 		1A47DF4F1B7CD90600B8D982 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +241,7 @@
 		1A4F283F1B71058900C4BC13 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1A368C251B9059A8002C2301 /* DataHandler */,
 				1A47DF4F1B7CD90600B8D982 /* TableView */,
 				1A510E371B71F8E600E777D3 /* Logging */,
 				1A510E6D1B722E8200E777D3 /* RBUtils.h */,
@@ -261,6 +298,8 @@
 		1A510E5E1B72194100E777D3 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				1A368C211B9057E1002C2301 /* Cell */,
+				1A368C1D1B9047D8002C2301 /* DataSource */,
 				1A510E5F1B72196A00E777D3 /* InboxViewController.h */,
 				1A510E601B72196A00E777D3 /* InboxViewController.m */,
 			);
@@ -512,6 +551,8 @@
 				1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */,
 				1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */,
 				1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */,
+				1A368C201B904806002C2301 /* RBInboxDataHandler.m in Sources */,
+				1A368C281B9059C1002C2301 /* RBDataHandler.m in Sources */,
 				1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */,
 				1A4F281E1B71054F00C4BC13 /* AppDelegate.m in Sources */,
 				1ADF52961B835CB200CAB9B9 /* RBUploadData.m in Sources */,
@@ -524,6 +565,7 @@
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
 				1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */,
 				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
+				1A368C241B905809002C2301 /* RBInboxTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

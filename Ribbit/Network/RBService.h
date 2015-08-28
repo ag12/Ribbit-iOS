@@ -17,6 +17,7 @@ typedef void (^FetchFriends)(NSArray *friends);
 typedef void (^AddFriend)(BOOL succeeded);
 typedef void (^UploadedFileSucceeded)(BOOL succeeded);
 typedef void (^UploadedFileFailed)();
+typedef void (^FetchMessages)(NSArray *messages);
 
 
 
@@ -30,5 +31,6 @@ typedef void (^UploadedFileFailed)();
 - (void)fetchFriends:(FetchFriends)completion;
 - (void)addFriend:(RBUser *)user completion:(AddFriend)completion;
 - (void)removeFriend:(RBUser *)user completion:(AddFriend)completion;
-- (void)uploadFile:(UIImage *)image recipients:(NSArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
+- (void)uploadFile:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
+- (void)fetchMessages:(FetchMessages)completion;
 @end

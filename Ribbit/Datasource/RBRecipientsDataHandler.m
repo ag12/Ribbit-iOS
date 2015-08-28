@@ -8,24 +8,13 @@
 
 #import "RBRecipientsDataHandler.h"
 
-@interface RBRecipientsDataHandler() 
-@property (nonatomic) NSArray *data;
-@end
-
 @implementation RBRecipientsDataHandler
 
 #pragma mark - init
 
-- (instancetype)init {
-    if (self) {
-        _service = [RBService service];
-    }
-    return self;
-}
-
 - (void) dataSource:(Recipients)completion {
-    [_service fetchFriends:^(NSArray *friends) {
-        _data = friends;
+    [self.service fetchFriends:^(NSArray *friends) {
+        self.data = friends;
         /*
         if (_recipients) {
             _recipients = [NSMutableArray arrayWithArray:_recipients];
@@ -41,7 +30,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"recipientsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    RBUser *user = [_data objectAtIndex:indexPath.row];
+    RBUser *user = [self.data objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     if ([self isRecipients:user]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -55,14 +44,14 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_data count];
+    return [self.data count];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    RBUser *user = [_data objectAtIndex:indexPath.row];
+    RBUser *user = [self.data objectAtIndex:indexPath.row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         //if ([self isRecipients:user]) {
             cell.accessoryType = UITableViewCellAccessoryNone;

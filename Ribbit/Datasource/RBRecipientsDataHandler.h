@@ -6,13 +6,12 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import "RBService.h"
+#import "RBDataHandler.h"
 
 typedef void (^Recipients)();
 
-@interface RBRecipientsDataHandler : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface RBRecipientsDataHandler : RBDataHandler
 - (void)dataSource:(Recipients)completion;
 @property (nonatomic) NSMutableArray *recipients;
-@property (nonatomic) RBService *service;
 -(void)reset;
 @end

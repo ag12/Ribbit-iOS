@@ -62,7 +62,7 @@
         user.username = username;
         user.password = password;
         @weakify(self);
-        [[RBService new] logIn:user completion:^(PFUser *user, NSError *error) {
+        [[RBService service] logIn:user completion:^(PFUser *user, NSError *error) {
             if (user) {
                 @strongify(self);
                 [self.navigationController popToRootViewControllerAnimated:YES];

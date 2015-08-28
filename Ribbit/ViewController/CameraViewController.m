@@ -31,7 +31,9 @@
     [super viewWillAppear:animated];
     [self imagePickerControllerSettings];
     if (!_image && !_videoFilePath) {
-        [self presentViewController:_imagePickerController animated:YES completion:nil];
+        [self presentViewController:_imagePickerController animated:YES completion:^{
+
+        }];
     } else {
         _cancel.enabled = _send.enabled = YES;
     }

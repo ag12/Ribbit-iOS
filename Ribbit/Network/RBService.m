@@ -147,8 +147,9 @@
     }];
 }
 
-#pragma mark - File 
-- (void)uploadFile:(UIImage *)image recipients:(NSArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
+#pragma mark - Messages
+
+- (void)uploadFile:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
 
     RBUploadData *data = [[RBUploadData alloc] initWithImage:image user:self.currentUser recipients:recipients];
     [[data getFile] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -169,5 +170,21 @@
         }
     }];
 }
+
+- (void)fetchMessages:(FetchMessages)completion {
+    PFQuery *query = [RBMessage query];
+    [query whereKey:[RBMessage recipients] equalTo:_currentUser.objectId];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *messages, NSError *error) {
+        if (messages) {
+            completion(messages);
+            return;
+        } else {
+            completion(nil);
+        }
+
+    }];
+}
+
 
 @end

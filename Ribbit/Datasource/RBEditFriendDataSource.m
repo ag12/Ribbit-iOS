@@ -14,15 +14,14 @@
 @interface RBEditFriendDataSource ()
 @property (nonatomic) NSArray *users;
 @property (nonatomic) NSMutableArray *friends;
-@property (nonatomic) RBService *service;
 @end
 
 @implementation RBEditFriendDataSource
 
 #pragma mark - init
 - (instancetype) initWithFriends:(NSArray *)friends {
+    self = [super init];
     if (self) {
-        _service = [RBService new];
         if (friends) {
             _friends = [NSMutableArray arrayWithArray:friends];
         } else {
@@ -37,16 +36,16 @@
 
 - (void) dataSource:(Users)completion {
     if (!_friends) {
-        [_service fetchFriends:^(NSArray *friends) {
+        [self.service fetchFriends:^(NSArray *friends) {
             _friends = [NSMutableArray arrayWithArray:friends];
-            [_service users:^(NSArray *users) {
+            [self.service users:^(NSArray *users) {
                 _users = users;
                 completion();
             }];
         }];
 
     } else {
-        [_service users:^(NSArray *users) {
+        [self.service users:^(NSArray *users) {
             _users = users;
             completion();
         }];
@@ -94,11 +93,11 @@
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [_friends removeObject:user];
-        [_service removeFriend:user completion:nil];
+        [self.service removeFriend:user completion:nil];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.friends addObject:user];
-        [_service addFriend:user completion:nil];
+        [self.service addFriend:user completion:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

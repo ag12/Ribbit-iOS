@@ -41,4 +41,7 @@
     return self;
 }
 
++ (NSString *)recipients {
+    return @"recipients";
+}
 @end

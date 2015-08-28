@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
+#import "RBDataHandler.h"
 
 typedef void (^Users)();
 
-@interface RBEditFriendDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface RBEditFriendDataSource : RBDataHandler
 - (instancetype) initWithFriends:(NSArray *)friends;
 - (void) dataSource:(Users)completion;
 

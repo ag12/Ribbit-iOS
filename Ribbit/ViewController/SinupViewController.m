@@ -57,7 +57,7 @@
         user.password = password;
         user.email = email;
         @weakify(self);
-        [[RBService new] signUp:user completion:^(BOOL succeeded, NSError *error) {
+        [[RBService service] signUp:user completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 @strongify(self);
                 [self.navigationController popToRootViewControllerAnimated:YES];

@@ -9,6 +9,8 @@
 #import "InboxViewController.h"
 #import <Parse/Parse.h>
 #import "RBUser.h"
+#import "RBInboxDataHandler.h"
+
 
 #define kAuthenticationSegue @"authenticationSegue"
 
@@ -16,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOut;
 @property (nonatomic) RBUser *user;
+@property (nonatomic) RBInboxDataHandler *dataHandler;
+
 @end
 
 @implementation InboxViewController
@@ -25,6 +29,7 @@
     _user = [RBUser currentUser];
     if (_user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
+        
     }
 }
 - (void)viewDidLoad {
@@ -34,6 +39,14 @@
     _user = [RBUser currentUser];
     if (_user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
+        self.dataHandler = [RBInboxDataHandler new];
+        self.tableView.dataSource = self.dataHandler;
+        self.tableView.delegate = self.dataHandler;
+        [self.dataHandler dataSource:^{
+            [self.tableView reloadData];
+        }];
+        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
     } else {
         self.navigationItem.hidesBackButton = YES;
         [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
@@ -62,5 +75,4 @@
     [RBUser logOut];
     [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
 }
-
 @end

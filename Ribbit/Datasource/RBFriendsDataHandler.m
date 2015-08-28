@@ -9,24 +9,22 @@
 #import "RBFriendsDataHandler.h"
 #import "RBService.h"
 
-@interface RBFriendsDataHandler ()
-@property (nonatomic) RBService *service;
-@end
+
 
 @implementation RBFriendsDataHandler
 
 #pragma mark - init
 
 - (instancetype)init {
+    self = [super init];
     if (self) {
-        _service = [RBService new];
         _friends = nil;
     }
     return self;
 }
 
 - (void) dataSource:(Friends)completion {
-    [_service fetchFriends:^(NSArray *friends) {
+    [self.service fetchFriends:^(NSArray *friends) {
         _friends = friends;
         completion();
     }];
