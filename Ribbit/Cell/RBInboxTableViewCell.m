@@ -20,4 +20,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setMessageWithMessage:(RBMessage *)message {
+    self.senderLabel.text = message.senderName;
+    if ([message isImageFile]) {
+        self.image.image = [UIImage imageNamed:@"icon_image"];
+    } else {
+        self.image.image = [UIImage imageNamed:@"icon_video"];
+    }
+
+}
+
 @end

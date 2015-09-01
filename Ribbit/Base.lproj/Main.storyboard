@@ -277,6 +277,23 @@
             </objects>
             <point key="canvasLocation" x="1659" y="1441"/>
         </scene>
+        <!--Message View Controller-->
+        <scene sceneID="38V-gC-kbD">
+            <objects>
+                <viewController restorationIdentifier="messageViewController" storyboardIdentifier="messageViewController" id="5G7-Jw-n46" customClass="RBMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TB6-h5-xLV"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Oy-gd-pYV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1DM-fu-47Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEv-qo-ba6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666" y="-786"/>
+        </scene>
         <!--Inbox-->
         <scene sceneID="xMr-gw-oAr">
             <objects>
@@ -300,16 +317,39 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rkW-tk-pRD" id="mlF-0y-mh4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxw-K1-tco">
-                                                    <rect key="frame" x="135" y="24" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_image" translatesAutoresizingMaskIntoConstraints="NO" id="2fI-fw-LLp">
+                                                    <rect key="frame" x="16" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Jog-yf-lQY"/>
+                                                        <constraint firstAttribute="height" constant="40" id="mcZ-TJ-LrK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.04.2016" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-Xi-EKJ" userLabel="time">
+                                                    <rect key="frame" x="64" y="41" width="73" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxw-K1-tco" userLabel="senderName">
+                                                    <rect key="frame" x="64" y="15" width="38" height="18"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="2fI-fw-LLp" secondAttribute="centerY" id="4kg-tM-ewU"/>
+                                                <constraint firstItem="2fI-fw-LLp" firstAttribute="leading" secondItem="mlF-0y-mh4" secondAttribute="leadingMargin" constant="8" id="AuT-Rc-oMi"/>
+                                                <constraint firstItem="Uxi-Xi-EKJ" firstAttribute="bottom" secondItem="2fI-fw-LLp" secondAttribute="bottom" constant="3" id="CJF-3g-XGj"/>
+                                                <constraint firstItem="Dxw-K1-tco" firstAttribute="top" secondItem="2fI-fw-LLp" secondAttribute="top" id="Dle-i4-HFi"/>
+                                                <constraint firstItem="Uxi-Xi-EKJ" firstAttribute="leading" secondItem="2fI-fw-LLp" secondAttribute="trailing" constant="8" id="E10-85-a13"/>
+                                                <constraint firstItem="Dxw-K1-tco" firstAttribute="leading" secondItem="2fI-fw-LLp" secondAttribute="trailing" constant="8" id="MMZ-4X-CuL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="image" destination="2fI-fw-LLp" id="Peq-eS-mcE"/>
                                             <outlet property="senderLabel" destination="Dxw-K1-tco" id="i9P-61-e2h"/>
+                                            <outlet property="time" destination="Uxi-Xi-EKJ" id="E4r-QW-nmd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -334,6 +374,7 @@
                         <outlet property="logOut" destination="GWd-8X-Ri8" id="JaA-Ll-s0D"/>
                         <outlet property="tableView" destination="Y9f-97-BQ7" id="Vn1-Lr-lkf"/>
                         <segue destination="zUZ-32-7Fq" kind="show" identifier="authenticationSegue" id="LVA-rV-M8g"/>
+                        <segue destination="5G7-Jw-n46" kind="presentation" identifier="messageSegue" id="Ucz-es-anc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maX-yQ-prt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,6 +552,7 @@
     <resources>
         <image name="camera" width="33" height="24"/>
         <image name="friends" width="40" height="24"/>
+        <image name="icon_image" width="15" height="12"/>
         <image name="inbox" width="32" height="21"/>
     </resources>
 </document>

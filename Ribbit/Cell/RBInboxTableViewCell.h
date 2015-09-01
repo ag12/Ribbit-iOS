@@ -6,9 +6,13 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RBMessage.h"
 
 @interface RBInboxTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *senderLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+
+- (void)setMessageWithMessage:(RBMessage *)message;
 
 @end

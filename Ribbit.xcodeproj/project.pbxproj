@@ -10,6 +10,9 @@
 		1A368C201B904806002C2301 /* RBInboxDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */; };
 		1A368C241B905809002C2301 /* RBInboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C231B905809002C2301 /* RBInboxTableViewCell.m */; };
 		1A368C281B9059C1002C2301 /* RBDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C271B9059C1002C2301 /* RBDataHandler.m */; };
+		1A368C2C1B94954D002C2301 /* RBPresentViewControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C2B1B94954D002C2301 /* RBPresentViewControllerTransition.m */; };
+		1A368C2F1B949583002C2301 /* RBDismissViewControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C2E1B949583002C2301 /* RBDismissViewControllerTransition.m */; };
+		1A368C331B94969D002C2301 /* RBMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C321B94969D002C2301 /* RBMessageViewController.m */; };
 		1A47DF521B7CD92300B8D982 /* AMTableViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */; };
 		1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DF551B7CDB3A00B8D982 /* RBRecipientsDataHandler.m */; };
 		1A4F281B1B71054F00C4BC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F281A1B71054F00C4BC13 /* main.m */; };
@@ -52,6 +55,12 @@
 		1A368C231B905809002C2301 /* RBInboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBInboxTableViewCell.m; path = Cell/RBInboxTableViewCell.m; sourceTree = "<group>"; };
 		1A368C261B9059C1002C2301 /* RBDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBDataHandler.h; path = Utils/RBDataHandler.h; sourceTree = "<group>"; };
 		1A368C271B9059C1002C2301 /* RBDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBDataHandler.m; path = Utils/RBDataHandler.m; sourceTree = "<group>"; };
+		1A368C2A1B94954D002C2301 /* RBPresentViewControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBPresentViewControllerTransition.h; path = Utils/RBPresentViewControllerTransition.h; sourceTree = "<group>"; };
+		1A368C2B1B94954D002C2301 /* RBPresentViewControllerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBPresentViewControllerTransition.m; path = Utils/RBPresentViewControllerTransition.m; sourceTree = "<group>"; };
+		1A368C2D1B949583002C2301 /* RBDismissViewControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBDismissViewControllerTransition.h; path = Utils/RBDismissViewControllerTransition.h; sourceTree = "<group>"; };
+		1A368C2E1B949583002C2301 /* RBDismissViewControllerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBDismissViewControllerTransition.m; path = Utils/RBDismissViewControllerTransition.m; sourceTree = "<group>"; };
+		1A368C311B94969D002C2301 /* RBMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBMessageViewController.h; path = ViewController/RBMessageViewController.h; sourceTree = "<group>"; };
+		1A368C321B94969D002C2301 /* RBMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBMessageViewController.m; path = ViewController/RBMessageViewController.m; sourceTree = "<group>"; };
 		1A47DF501B7CD92300B8D982 /* AMTableViewDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTableViewDataSourceHelper.h; path = Utils/AMTableViewDataSourceHelper.h; sourceTree = "<group>"; };
 		1A47DF511B7CD92300B8D982 /* AMTableViewDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTableViewDataSourceHelper.m; path = Utils/AMTableViewDataSourceHelper.m; sourceTree = "<group>"; };
 		1A47DF541B7CDB3A00B8D982 /* RBRecipientsDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBRecipientsDataHandler.h; path = Datasource/RBRecipientsDataHandler.h; sourceTree = "<group>"; };
@@ -145,6 +154,26 @@
 				1A368C271B9059C1002C2301 /* RBDataHandler.m */,
 			);
 			name = DataHandler;
+			sourceTree = "<group>";
+		};
+		1A368C291B94950C002C2301 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				1A368C2A1B94954D002C2301 /* RBPresentViewControllerTransition.h */,
+				1A368C2B1B94954D002C2301 /* RBPresentViewControllerTransition.m */,
+				1A368C2D1B949583002C2301 /* RBDismissViewControllerTransition.h */,
+				1A368C2E1B949583002C2301 /* RBDismissViewControllerTransition.m */,
+			);
+			name = Transition;
+			sourceTree = "<group>";
+		};
+		1A368C301B949672002C2301 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				1A368C311B94969D002C2301 /* RBMessageViewController.h */,
+				1A368C321B94969D002C2301 /* RBMessageViewController.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		1A47DF4F1B7CD90600B8D982 /* TableView */ = {
@@ -241,6 +270,7 @@
 		1A4F283F1B71058900C4BC13 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1A368C291B94950C002C2301 /* Transition */,
 				1A368C251B9059A8002C2301 /* DataHandler */,
 				1A47DF4F1B7CD90600B8D982 /* TableView */,
 				1A510E371B71F8E600E777D3 /* Logging */,
@@ -298,6 +328,7 @@
 		1A510E5E1B72194100E777D3 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				1A368C301B949672002C2301 /* Message */,
 				1A368C211B9057E1002C2301 /* Cell */,
 				1A368C1D1B9047D8002C2301 /* DataSource */,
 				1A510E5F1B72196A00E777D3 /* InboxViewController.h */,
@@ -561,10 +592,13 @@
 				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
 				1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */,
 				1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */,
+				1A368C331B94969D002C2301 /* RBMessageViewController.m in Sources */,
 				1A510E741B722F3500E777D3 /* RBService.m in Sources */,
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
 				1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */,
 				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
+				1A368C2C1B94954D002C2301 /* RBPresentViewControllerTransition.m in Sources */,
+				1A368C2F1B949583002C2301 /* RBDismissViewControllerTransition.m in Sources */,
 				1A368C241B905809002C2301 /* RBInboxTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

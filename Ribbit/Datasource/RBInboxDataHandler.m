@@ -30,22 +30,7 @@
     static NSString *CellIdentifier = @"inboxTableViewCell";
     RBInboxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     RBMessage *message = [self.data objectAtIndex:indexPath.row];
-    cell.senderLabel.text = message.senderName;
+    [cell setMessageWithMessage:message];
     return cell;
 }
-
-/*
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data count];
-}
-*/
-
-#pragma mark - UITableViewDelegate
-
-
-
-
-
-
-
 @end

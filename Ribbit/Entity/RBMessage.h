@@ -13,10 +13,11 @@
 @interface RBMessage : PFObject <PFSubclassing>
 - (instancetype)initWithFile:(PFFile *)file data:(RBUploadData *)data;
 @property (nonatomic) PFFile *file;
-@property (nonatomic) NSString *fileType;
+@property (nonatomic, strong) NSString *fileType;
 @property (nonatomic) NSArray *recipients;
 @property (nonatomic) NSString *senderId;
 @property (nonatomic) NSString *senderName;
 
 + (NSString *)recipients;
+- (BOOL)isImageFile;
 @end

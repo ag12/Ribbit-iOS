@@ -44,4 +44,7 @@
 + (NSString *)recipients {
     return @"recipients";
 }
+- (BOOL)isImageFile {
+    return [self.fileType isEqualToString:@"image"];
+}
 @end

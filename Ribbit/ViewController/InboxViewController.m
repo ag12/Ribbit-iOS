@@ -10,11 +10,15 @@
 #import <Parse/Parse.h>
 #import "RBUser.h"
 #import "RBInboxDataHandler.h"
+#import "RBPresentViewControllerTransition.h"
+#import "RBDismissViewControllerTransition.h"
+#import "RBMessageViewController.h"
 
 
 #define kAuthenticationSegue @"authenticationSegue"
+#define kMessageSegue @"messageSegue"
 
-@interface InboxViewController ()
+@interface InboxViewController () <UITableViewDelegate, UIViewControllerTransitioningDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOut;
 @property (nonatomic) RBUser *user;
@@ -41,7 +45,7 @@
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
         self.dataHandler = [RBInboxDataHandler new];
         self.tableView.dataSource = self.dataHandler;
-        self.tableView.delegate = self.dataHandler;
+        self.tableView.delegate = self;
         [self.dataHandler dataSource:^{
             [self.tableView reloadData];
         }];
@@ -68,6 +72,12 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:kAuthenticationSegue]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    } else if ([segue.identifier isEqualToString:kMessageSegue]) {
+        RBMessageViewController *messageViewController = [RBMessageViewController new];
+        messageViewController.modalPresentationStyle = UIModalPresentationCustom;
+        messageViewController.transitioningDelegate = self;
+        [self presentViewController:messageViewController animated:YES completion:nil];
+        LogTrace(@"DONE DIII");
     }
 }
 
@@ -75,4 +85,28 @@
     [RBUser logOut];
     [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
 }
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:kMessageSegue sender:self];
+}
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    LogTrace(@"LOZZZ");
+    return [RBPresentViewControllerTransition new];
+
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    LogTrace(@"DISMISS");
+    return [RBDismissViewControllerTransition new];
+}
+
 @end
