@@ -33,7 +33,11 @@
     _user = [RBUser currentUser];
     if (_user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
-        
+    }
+    if (self.dataHandler) {
+        [self.dataHandler dataSource:^{
+            [self.tableView reloadData];
+        }];
     }
 }
 - (void)viewDidLoad {
