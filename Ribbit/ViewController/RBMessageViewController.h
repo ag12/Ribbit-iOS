@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RBMessage.h"
 
 @interface RBMessageViewController : UIViewController
 
+@property (nonatomic) RBMessage *message;
 @end

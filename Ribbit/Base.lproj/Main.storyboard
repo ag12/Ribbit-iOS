@@ -324,15 +324,15 @@
                                                         <constraint firstAttribute="height" constant="40" id="mcZ-TJ-LrK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.04.2016" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-Xi-EKJ" userLabel="time">
-                                                    <rect key="frame" x="64" y="41" width="73" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxw-K1-tco" userLabel="senderName">
                                                     <rect key="frame" x="64" y="15" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.04.2016" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-Xi-EKJ" userLabel="time">
+                                                    <rect key="frame" x="64" y="38" width="73" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -342,9 +342,15 @@
                                                 <constraint firstItem="2fI-fw-LLp" firstAttribute="leading" secondItem="mlF-0y-mh4" secondAttribute="leadingMargin" constant="8" id="AuT-Rc-oMi"/>
                                                 <constraint firstItem="Uxi-Xi-EKJ" firstAttribute="bottom" secondItem="2fI-fw-LLp" secondAttribute="bottom" constant="3" id="CJF-3g-XGj"/>
                                                 <constraint firstItem="Dxw-K1-tco" firstAttribute="top" secondItem="2fI-fw-LLp" secondAttribute="top" id="Dle-i4-HFi"/>
+                                                <constraint firstItem="Uxi-Xi-EKJ" firstAttribute="top" secondItem="Dxw-K1-tco" secondAttribute="bottom" constant="5" id="Dzu-yh-7PO"/>
                                                 <constraint firstItem="Uxi-Xi-EKJ" firstAttribute="leading" secondItem="2fI-fw-LLp" secondAttribute="trailing" constant="8" id="E10-85-a13"/>
                                                 <constraint firstItem="Dxw-K1-tco" firstAttribute="leading" secondItem="2fI-fw-LLp" secondAttribute="trailing" constant="8" id="MMZ-4X-CuL"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CJF-3g-XGj"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="image" destination="2fI-fw-LLp" id="Peq-eS-mcE"/>

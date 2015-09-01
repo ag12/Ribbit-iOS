@@ -27,6 +27,7 @@
     } else {
         self.image.image = [UIImage imageNamed:@"icon_video"];
     }
+    self.time.text = [message time];
 
 }
 

@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOut;
 @property (nonatomic) RBUser *user;
 @property (nonatomic) RBInboxDataHandler *dataHandler;
-
+@property (nonatomic) RBMessage *message;
 @end
 
 @implementation InboxViewController
@@ -74,10 +74,11 @@
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     } else if ([segue.identifier isEqualToString:kMessageSegue]) {
         RBMessageViewController *messageViewController = [RBMessageViewController new];
+        messageViewController.message = self.message;
         messageViewController.modalPresentationStyle = UIModalPresentationCustom;
         messageViewController.transitioningDelegate = self;
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
         [self presentViewController:messageViewController animated:YES completion:nil];
-        LogTrace(@"DONE DIII");
     }
 }
 
@@ -90,6 +91,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.message = [self.dataHandler.data objectAtIndex:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:kMessageSegue sender:self];
 }
@@ -99,13 +101,11 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
-    LogTrace(@"LOZZZ");
     return [RBPresentViewControllerTransition new];
 
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    LogTrace(@"DISMISS");
     return [RBDismissViewControllerTransition new];
 }
 

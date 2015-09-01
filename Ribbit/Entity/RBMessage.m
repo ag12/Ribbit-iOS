@@ -47,4 +47,18 @@
 - (BOOL)isImageFile {
     return [self.fileType isEqualToString:@"image"];
 }
+
+- (NSString *)time {
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSDateFormatter new];
+        formatter.locale = [NSLocale currentLocale];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setDateFormat:@"MMM dd, yyyy HH:mm"];
+        LogTrace(@"YOLO");
+    });
+    LogTrace(@"ADDED");
+    return [formatter stringFromDate:self.createdAt];
+}
 @end

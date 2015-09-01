@@ -20,4 +20,5 @@
 
 + (NSString *)recipients;
 - (BOOL)isImageFile;
+- (NSString *)time;
 @end

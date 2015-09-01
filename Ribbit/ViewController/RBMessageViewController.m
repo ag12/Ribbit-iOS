@@ -11,11 +11,16 @@
 @interface RBMessageViewController ()
 @property (nonatomic) UIDynamicAnimator *animator;
 @property (nonatomic) UIImageView *imageView;
+@property (nonatomic) NSData *imageData;
 
 @end
 
 @implementation RBMessageViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:self.message.file.url]]];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -24,6 +29,7 @@
     [self.view setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.50]];
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -320, -320, 320)];
     self.imageView.image = [UIImage imageNamed:@"icon_image"];
+
     [self.view addSubview:self.imageView];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
