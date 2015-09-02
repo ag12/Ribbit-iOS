@@ -31,6 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    LogTrace(@"viewWillAppear");
     _user = [RBUser currentUser];
     if (_user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
