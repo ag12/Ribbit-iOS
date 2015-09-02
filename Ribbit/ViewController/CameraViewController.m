@@ -32,7 +32,12 @@
     [self imagePickerControllerSettings];
     if (!_image && !_videoFilePath) {
         [self presentViewController:_imagePickerController animated:YES completion:^{
-
+            if (self.dataHandler) {
+                [self.dataHandler dataSource:^{
+                    [_activityIndicator stopAnimating];
+                    [_tableView reloadData];
+                }];
+            }
         }];
     } else {
         _cancel.enabled = _send.enabled = YES;

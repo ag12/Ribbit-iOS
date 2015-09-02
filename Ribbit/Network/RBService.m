@@ -38,7 +38,9 @@
         service = [RBService new];
     });
     service.currentUser = [RBUser currentUser];
-    service.friendsRelation = [service.currentUser relationForKey:kFriendsRelation];
+    if (service.currentUser) {
+        service.friendsRelation = [service.currentUser relationForKey:kFriendsRelation];
+    }
     return service;
 }
 

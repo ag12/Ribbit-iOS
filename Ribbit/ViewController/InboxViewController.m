@@ -13,6 +13,7 @@
 #import "RBPresentViewControllerTransition.h"
 #import "RBDismissViewControllerTransition.h"
 #import "RBMessageViewController.h"
+#import "MBProgressHUD.h"
 
 
 #define kAuthenticationSegue @"authenticationSegue"
@@ -50,9 +51,6 @@
         self.dataHandler = [RBInboxDataHandler new];
         self.tableView.dataSource = self.dataHandler;
         self.tableView.delegate = self;
-        [self.dataHandler dataSource:^{
-            [self.tableView reloadData];
-        }];
         self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     } else {
@@ -77,6 +75,7 @@
     if ([segue.identifier isEqualToString:kAuthenticationSegue]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     } else if ([segue.identifier isEqualToString:kMessageSegue]) {
+        [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
         RBMessageViewController *messageViewController = [RBMessageViewController new];
         messageViewController.message = self.message;
         messageViewController.modalPresentationStyle = UIModalPresentationCustom;
