@@ -38,11 +38,7 @@
     if (self.user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", self.user.username, @"Inbox"];
     }
-    if (self.dataHandler) {
-        [self.dataHandler dataSource:^{
-            [self.tableView reloadData];
-        }];
-    }
+    [self updateMessages];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,6 +83,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.message = [self.dataHandler.data objectAtIndex:indexPath.row];
     if (self.message) {
+        [[RBService service] didSeenMessage:self.message completion:^(BOOL succeeded) {
+            [self updateMessages];
+        }];
         if ([self.message isImageFile]) {
             [self performSegueWithIdentifier:kMessageSegue sender:self];
         } else {
@@ -97,12 +96,18 @@
             [self.view addSubview:self.mPlayer.view];
             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
             [self.mPlayer setFullscreen:YES animated:YES];
-            [[RBService service] didSeenMessage:self.message];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+- (void)updateMessages {
+    LogTrace(@"updateMessages");
+    if (self.dataHandler) {
+        [self.dataHandler dataSource:^{
+            [self.tableView reloadData];
+        }];
+    }
+}
 
 #pragma mark - UIViewControllerTransitioningDelegate
 

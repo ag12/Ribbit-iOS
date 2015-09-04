@@ -153,18 +153,18 @@
     }];
 }
 
-- (void)didSeenMessage:(RBMessage *)message {
+- (void)didSeenMessage:(RBMessage *)message completion:(SeenMessage)completion {
 
     NSMutableArray *array = [NSMutableArray arrayWithArray:message.recipients];
     if (array.count == 1) {
         [message deleteInBackgroundWithBlock:^(BOOL deleted, NSError *error){
-
+            completion(deleted);
         }];
     } else {
         [array removeObject:[AuthenticationService getUser].objectId];
         [message setRecipients:[NSArray arrayWithArray:array]];
         [message saveInBackgroundWithBlock:^(BOOL deleted, NSError *error){
-
+            completion(deleted);
         }];
     }
 }

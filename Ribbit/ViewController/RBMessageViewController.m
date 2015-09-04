@@ -84,7 +84,6 @@
 }
 
 - (void)dismiss {
-    [[RBService service] didSeenMessage:self.message];
     [self.animator removeAllBehaviors];
 
     UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.imageView snapToPoint:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) + 180.0f)];
