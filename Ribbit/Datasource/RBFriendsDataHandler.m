@@ -24,7 +24,7 @@
 }
 
 - (void) dataSource:(Friends)completion {
-    [self.service fetchFriends:^(NSArray *friends) {
+    [[RBService service] fetchFriends:^(NSArray *friends) {
         _friends = friends;
         completion();
     }];

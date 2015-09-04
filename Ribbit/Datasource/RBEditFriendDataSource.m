@@ -23,10 +23,7 @@
     self = [super init];
     if (self) {
         if (friends) {
-            _friends = [NSMutableArray arrayWithArray:friends];
-        } else {
-            //_friends = nil;
-            LogTrace(@"LOL");
+            self.friends = [NSMutableArray arrayWithArray:friends];
         }
     }
     return self;
@@ -35,18 +32,18 @@
 #pragma mark - Source
 
 - (void) dataSource:(Users)completion {
-    if (!_friends) {
-        [self.service fetchFriends:^(NSArray *friends) {
-            _friends = [NSMutableArray arrayWithArray:friends];
-            [self.service users:^(NSArray *users) {
-                _users = users;
+    if (!self.friends) {
+        [[RBService service] fetchFriends:^(NSArray *friends) {
+            self.friends = [NSMutableArray arrayWithArray:friends];
+            [[RBService service] users:^(NSArray *users) {
+                self.users = users;
                 completion();
             }];
         }];
 
     } else {
-        [self.service users:^(NSArray *users) {
-            _users = users;
+        [[RBService service] users:^(NSArray *users) {
+            self.users = users;
             completion();
         }];
     }
@@ -54,7 +51,7 @@
 #pragma mark - Utility Source
 
 - (BOOL)isFriend:(RBUser *)user {
-    if (_friends) {
+    if (self.friends) {
         for (RBUser *friend in _friends) {
             if ([friend.objectId isEqualToString:user.objectId]) {
                 return YES;
@@ -92,12 +89,12 @@
     RBUser *user = [_users objectAtIndex:indexPath.row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_friends removeObject:user];
-        [self.service removeFriend:user completion:nil];
+        [self.friends removeObject:user];
+        [[RBService service] removeFriend:user completion:nil];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.friends addObject:user];
-        [self.service addFriend:user completion:nil];
+        [[RBService service] addFriend:user completion:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

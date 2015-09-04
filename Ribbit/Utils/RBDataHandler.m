@@ -10,16 +10,6 @@
 
 @implementation RBDataHandler
 
-#pragma mark - init
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _service = [RBService service];
-    }
-    return self;
-}
-
 
 #pragma mark - UITableViewDataSource
 

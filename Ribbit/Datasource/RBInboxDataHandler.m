@@ -18,7 +18,7 @@
 
 
 - (void) dataSource:(Messages)completion {
-    [self.service fetchMessages:^(NSArray *messages) {
+    [[RBService service] fetchMessages:^(NSArray *messages) {
         self.data = messages;
         completion();
     }];

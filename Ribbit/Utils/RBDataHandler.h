@@ -9,6 +9,5 @@
 #import "RBService.h"
 
 @interface RBDataHandler : NSObject <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic) RBService *service;
 @property (nonatomic) NSArray *data;
 @end

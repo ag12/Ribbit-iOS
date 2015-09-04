@@ -13,15 +13,9 @@
 #pragma mark - init
 
 - (void) dataSource:(Recipients)completion {
-    [self.service fetchFriends:^(NSArray *friends) {
+    [[RBService service] fetchFriends:^(NSArray *friends) {
         self.data = friends;
-        /*
-        if (_recipients) {
-            _recipients = [NSMutableArray arrayWithArray:_recipients];
-        } else {
-            _recipients = [NSMutableArray array];
-        }*/
-         _recipients = [NSMutableArray array];
+         self.recipients = [NSMutableArray array];
         completion();
     }];
 }
@@ -53,24 +47,19 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     RBUser *user = [self.data objectAtIndex:indexPath.row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        //if ([self isRecipients:user]) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            [_recipients removeObject:user.objectId];
-        //}
-    } else /*if (cell.accessoryType == UITableViewCellAccessoryNone)*/ {
-        //if (![self isRecipients:user]) {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+            [self.recipients removeObject:user.objectId];
+    } else {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            [_recipients addObject:user.objectId];
-        //}
+            [self.recipients addObject:user.objectId];
     }
-    LogTrace(@"%@", _recipients);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark - Utility Source
 
 - (BOOL)isRecipientsCheck:(RBUser *)user {
-    if (_recipients) {
-        for (NSString *rip in _recipients) {
+    if (self.recipients) {
+        for (NSString *rip in self.recipients) {
             if ([rip isEqualToString:user.objectId]) {
                 return YES;
             }
@@ -79,9 +68,9 @@
     return NO;
 }
 - (BOOL)isRecipients:(RBUser *)user {
-    return [_recipients containsObject:user.objectId];
+    return [self.recipients containsObject:user.objectId];
 }
 -(void)reset {
-    _recipients = [NSMutableArray array];
+    self.recipients = [NSMutableArray array];
 }
 @end

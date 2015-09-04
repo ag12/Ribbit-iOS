@@ -9,9 +9,9 @@
 #import "RBUser.h"
 #import <Parse/Parse.h>
 #import "RBUploadData.h"
+#import "RBMessage.h"
 
-typedef void (^SignUpInBackground)(BOOL succeeded, NSError *error);
-typedef void (^LogInInBackground)(PFUser *user, NSError *error);
+
 typedef void (^FetchUsers)(NSArray *users);
 typedef void (^FetchFriends)(NSArray *friends);
 typedef void (^AddFriend)(BOOL succeeded);
@@ -22,15 +22,15 @@ typedef void (^FetchMessages)(NSArray *messages);
 
 
 @interface RBService : NSObject
-@property (nonatomic) RBUser *currentUser;
+@property (nonatomic) RBUser *user;
 
 + (instancetype)service;
-- (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion;
-- (void)logIn:(RBUser *)user completion:(LogInInBackground)completion;
 - (void)users:(FetchUsers)completion;
 - (void)fetchFriends:(FetchFriends)completion;
 - (void)addFriend:(RBUser *)user completion:(AddFriend)completion;
 - (void)removeFriend:(RBUser *)user completion:(AddFriend)completion;
-- (void)uploadFile:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
+- (void)uploadImage:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
+- (void)uploadVideo:(NSString *)path recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
 - (void)fetchMessages:(FetchMessages)completion;
+- (void)didSeenMessage:(RBMessage *)message;
 @end

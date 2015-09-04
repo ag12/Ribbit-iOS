@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A284D471B999AE200B94A36 /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A284D461B999AE200B94A36 /* AuthenticationService.m */; };
 		1A368C201B904806002C2301 /* RBInboxDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */; };
 		1A368C241B905809002C2301 /* RBInboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C231B905809002C2301 /* RBInboxTableViewCell.m */; };
 		1A368C281B9059C1002C2301 /* RBDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A368C271B9059C1002C2301 /* RBDataHandler.m */; };
@@ -49,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ribbit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A284D451B999AE200B94A36 /* AuthenticationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationService.h; path = Network/AuthenticationService.h; sourceTree = "<group>"; };
+		1A284D461B999AE200B94A36 /* AuthenticationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthenticationService.m; path = Network/AuthenticationService.m; sourceTree = "<group>"; };
 		1A368C1E1B904806002C2301 /* RBInboxDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBInboxDataHandler.h; path = Datasource/RBInboxDataHandler.h; sourceTree = "<group>"; };
 		1A368C1F1B904806002C2301 /* RBInboxDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBInboxDataHandler.m; path = Datasource/RBInboxDataHandler.m; sourceTree = "<group>"; };
 		1A368C221B905809002C2301 /* RBInboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBInboxTableViewCell.h; path = Cell/RBInboxTableViewCell.h; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 			children = (
 				1A510E721B722F3500E777D3 /* RBService.h */,
 				1A510E731B722F3500E777D3 /* RBService.m */,
+				1A284D451B999AE200B94A36 /* AuthenticationService.h */,
+				1A284D461B999AE200B94A36 /* AuthenticationService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				1A510E741B722F3500E777D3 /* RBService.m in Sources */,
 				1A510E611B72196A00E777D3 /* InboxViewController.m in Sources */,
 				1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */,
+				1A284D471B999AE200B94A36 /* AuthenticationService.m in Sources */,
 				1A510E7F1B739F9A00E777D3 /* RBEditFriendDataSource.m in Sources */,
 				1A368C2C1B94954D002C2301 /* RBPresentViewControllerTransition.m in Sources */,
 				1A368C2F1B949583002C2301 /* RBDismissViewControllerTransition.m in Sources */,

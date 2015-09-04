@@ -10,9 +10,8 @@
 #import <Parse/Parse.h>
 #import <TMCache/TMCache.h>
 #import <SAMCache/SAMCache.h>
-#import "RBMessage.h"
 #import "RBUploadData.h"
-
+#import "AuthenticationService.h"
 
 #define  kUsername @"username"
 #define  kFriendsCache @"friendsCache"
@@ -37,64 +36,24 @@
     dispatch_once(&onceToken, ^{
         service = [RBService new];
     });
-    service.currentUser = [RBUser currentUser];
-    if (service.currentUser) {
-        service.friendsRelation = [service.currentUser relationForKey:kFriendsRelation];
+    service.user = [AuthenticationService getUser];
+    if (service.user) {
+        service.friendsRelation = [service.user relationForKey:kFriendsRelation];
     }
     return service;
-}
-
-/*
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _currentUser = [RBUser currentUser];
-        _friendsRelation = [_currentUser relationForKey:kFriendsRelation];
-    }
-    return self;
-}
-*/
-#pragma mark - Sign up 
-
-- (void)signUp:(RBUser *)user completion:(SignUpInBackground)completion {
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            LogTrace(@"YES");
-            completion(YES, error);
-
-        } else {
-            LogDebug(@"NOPE")
-            LogDebug(error);
-            completion(NO, error);
-        }
-    }];
-}
-
-#pragma mark - Log in
-
-- (void)logIn:(RBUser *)user completion:(LogInInBackground)completion {
-    [RBUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser *user, NSError *error) {
-        if (!error) {
-            completion(user, nil);
-        } else {
-            completion(nil, error);
-        }
-    }];
 }
 
 #pragma mark - Fetch Users
 
 - (void)users:(FetchUsers)completion {
     PFQuery *query = [RBUser query];
-    [query whereKey:kUsername notEqualTo:_currentUser.username];
+    [query whereKey:kUsername notEqualTo:self.user.username];
     [query orderByAscending:kUsername];
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error){
         if (error) {
-            LogDebug(@"Error while fetching users %@, %@", error, [error userInfo]);
             completion(nil);
             return;
         } else {
-            LogTrace(@"Success while fetching users %@", users);
             completion(users);
         }
     }];
@@ -103,9 +62,9 @@
 #pragma mark - Friends
 
 - (void)addFriend:(RBUser *)user completion:(AddFriend)completion {
-    PFRelation *friends = [self.currentUser relationForKey:kFriendsRelation];
+    PFRelation *friends = [self.user relationForKey:kFriendsRelation];
     [friends addObject:user];
-    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
             if (completion) {
                 completion(YES);
@@ -119,9 +78,9 @@
 }
 
 - (void)removeFriend:(RBUser *)user completion:(AddFriend)completion {
-    PFRelation *friends = [self.currentUser relationForKey:kFriendsRelation];
+    PFRelation *friends = [self.user relationForKey:kFriendsRelation];
     [friends removeObject:user];
-    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
             if (completion) {
                 completion(YES);
@@ -139,11 +98,9 @@
     [query orderByAscending:kUsername];
     [query findObjectsInBackgroundWithBlock:^(NSArray *friends, NSError *error){
         if (error) {
-            LogDebug(@"Error while fetching friends %@, %@", error, [error userInfo]);
             completion(nil);
             return;
         } else {
-            LogTrace(@"Success while fetching friends");
             completion(friends);
         }
     }];
@@ -151,12 +108,20 @@
 
 #pragma mark - Messages
 
-- (void)uploadFile:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
+- (void)uploadImage:(UIImage *)image recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
 
-    RBUploadData *data = [[RBUploadData alloc] initWithImage:image user:self.currentUser recipients:recipients];
+    RBUploadData *data = [[RBUploadData alloc] initWithImage:image user:self.user recipients:recipients];
+    [self uploadMessage:data success:success failure:failure];
+}
+- (void)uploadVideo:(NSString *)path recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
+
+    RBUploadData *data = [[RBUploadData alloc] initWithVideoPath:path user:self.user recipients:recipients];
+    [self uploadMessage:data success:success failure:failure];
+}
+- (void)uploadMessage:(RBUploadData *)data  success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure {
+
     [[data getFile] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-
             RBMessage *message = [[RBMessage alloc] initWithFile:[data getFile] data:data];
             [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 if (succeeded) {
@@ -175,7 +140,7 @@
 
 - (void)fetchMessages:(FetchMessages)completion {
     PFQuery *query = [RBMessage query];
-    [query whereKey:[RBMessage recipients] equalTo:_currentUser.objectId];
+    [query whereKey:[RBMessage recipients] equalTo:self.user.objectId];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *messages, NSError *error) {
         if (messages) {
@@ -186,5 +151,21 @@
         }
 
     }];
+}
+
+- (void)didSeenMessage:(RBMessage *)message {
+
+    NSMutableArray *array = [NSMutableArray arrayWithArray:message.recipients];
+    if (array.count == 1) {
+        [message deleteInBackgroundWithBlock:^(BOOL deleted, NSError *error){
+
+        }];
+    } else {
+        [array removeObject:[AuthenticationService getUser].objectId];
+        [message setRecipients:[NSArray arrayWithArray:array]];
+        [message saveInBackgroundWithBlock:^(BOOL deleted, NSError *error){
+
+        }];
+    }
 }
 @end

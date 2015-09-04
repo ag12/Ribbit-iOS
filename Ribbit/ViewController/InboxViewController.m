@@ -6,15 +6,16 @@
 //  Copyright (c) 2015 AM. All rights reserved.
 //
 
-#import "InboxViewController.h"
 #import <Parse/Parse.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "InboxViewController.h"
 #import "RBUser.h"
 #import "RBInboxDataHandler.h"
 #import "RBPresentViewControllerTransition.h"
 #import "RBDismissViewControllerTransition.h"
 #import "RBMessageViewController.h"
 #import "MBProgressHUD.h"
-
+#import "AuthenticationService.h"
 
 #define kAuthenticationSegue @"authenticationSegue"
 #define kMessageSegue @"messageSegue"
@@ -25,16 +26,17 @@
 @property (nonatomic) RBUser *user;
 @property (nonatomic) RBInboxDataHandler *dataHandler;
 @property (nonatomic) RBMessage *message;
+@property (nonatomic) MPMoviePlayerController *mPlayer;
 @end
+
 
 @implementation InboxViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    LogTrace(@"viewWillAppear");
-    _user = [RBUser currentUser];
-    if (_user) {
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
+    self.user = [AuthenticationService getUser];
+    if (self.user) {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", self.user.username, @"Inbox"];
     }
     if (self.dataHandler) {
         [self.dataHandler dataSource:^{
@@ -44,16 +46,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    LogTrace(@"ViewDidLoad");
-    _user = [RBUser currentUser];
-    if (_user) {
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", _user.username, @"Inbox"];
-        self.dataHandler = [RBInboxDataHandler new];
-        self.tableView.dataSource = self.dataHandler;
-        self.tableView.delegate = self;
-        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    self.dataHandler = [RBInboxDataHandler new];
+    self.tableView.dataSource = self.dataHandler;
+    self.tableView.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.user = [AuthenticationService getUser];
+    if (self.user) {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", self.user.username, @"Inbox"];
+        self.mPlayer = [MPMoviePlayerController new];
     } else {
         self.navigationItem.hidesBackButton = YES;
         [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
@@ -61,18 +61,9 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:kAuthenticationSegue]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     } else if ([segue.identifier isEqualToString:kMessageSegue]) {
@@ -87,17 +78,29 @@
 }
 
 - (IBAction)logOut:(id)sender {
-    [RBUser logOut];
+    [[AuthenticationService new] logOut];
     [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
 }
-
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.message = [self.dataHandler.data objectAtIndex:indexPath.row];
+    if (self.message) {
+        if ([self.message isImageFile]) {
+            [self performSegueWithIdentifier:kMessageSegue sender:self];
+        } else {
+            [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+            self.mPlayer.contentURL = [[NSURL alloc] initWithString:self.message.file.url];
+            [self.mPlayer prepareToPlay];
+            //[self.mPlayer thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+            [self.view addSubview:self.mPlayer.view];
+            [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+            [self.mPlayer setFullscreen:YES animated:YES];
+            [[RBService service] didSeenMessage:self.message];
+        }
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:kMessageSegue sender:self];
 }
 
 
@@ -106,11 +109,9 @@
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
     return [RBPresentViewControllerTransition new];
-
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     return [RBDismissViewControllerTransition new];
 }
-
 @end

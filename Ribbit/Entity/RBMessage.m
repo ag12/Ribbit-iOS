@@ -22,7 +22,6 @@
 }
 
 - (instancetype)initWithFile:(PFFile *)file data:(RBUploadData *)data  {
-    //self = [super initWithClassName:@"Messages"];
     self = [super init];
     if (self) {
         self.file = file;
@@ -30,13 +29,6 @@
         self.recipients = data.recipients;
         self.senderId = data.user.objectId;
         self.senderName = data.user.username;
-        /*
-        [self setObject:file forKey:@"file"];
-        [self setObject:message.fileType forKey:@"fileType"];
-        [self setObject:recipients forKey:@"recipients"];
-        [self setObject:[[RBUser currentUser] objectId] forKey:@"senderId"];
-        [self setObject:[[RBUser currentUser] username] forKey:@"senderName"];
-         */
     }
     return self;
 }
@@ -56,9 +48,7 @@
         formatter.locale = [NSLocale currentLocale];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
         [formatter setDateFormat:@"MMM dd, yyyy HH:mm"];
-        LogTrace(@"YOLO");
     });
-    LogTrace(@"ADDED");
     return [formatter stringFromDate:self.createdAt];
 }
 @end

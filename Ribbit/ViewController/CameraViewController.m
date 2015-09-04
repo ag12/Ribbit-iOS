@@ -30,29 +30,25 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self imagePickerControllerSettings];
-    if (!_image && !_videoFilePath) {
+    if (!self.image && !self.videoFilePath) {
         [self presentViewController:_imagePickerController animated:YES completion:^{
             if (self.dataHandler) {
                 [self.dataHandler dataSource:^{
-                    [_activityIndicator stopAnimating];
-                    [_tableView reloadData];
+                    [self.activityIndicator stopAnimating];
+                    [self.tableView reloadData];
                 }];
             }
         }];
     } else {
-        _cancel.enabled = _send.enabled = YES;
+        self.cancel.enabled = self.send.enabled = YES;
     }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dataHandler = [RBRecipientsDataHandler new];
-    _tableView.dataSource = _dataHandler;
-    _tableView.delegate = _dataHandler;
+    self.dataHandler = [RBRecipientsDataHandler new];
+    self.tableView.dataSource = self.dataHandler;
+    self.tableView.delegate = self.dataHandler;
 
-    [self.dataHandler dataSource:^{
-        [_activityIndicator stopAnimating];
-        [_tableView reloadData];
-    }];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -61,16 +57,16 @@
 #pragma mark - Image Picker Controller
 
 - (void)imagePickerControllerSettings {
-    _imagePickerController = [UIImagePickerController new];
-    _imagePickerController.delegate = self;
-    _imagePickerController.allowsEditing = NO;
-    _imagePickerController.videoMaximumDuration = 10;
+    self.imagePickerController = [UIImagePickerController new];
+    self.imagePickerController.delegate = self;
+    self.imagePickerController.allowsEditing = NO;
+    self.imagePickerController.videoMaximumDuration = 10;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
-        _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    _imagePickerController.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:_imagePickerController.sourceType];
+    self.imagePickerController.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePickerController.sourceType];
 }
 
 #pragma mark - Image Picker Controller delegate
@@ -85,28 +81,28 @@
 
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         //Photo taken or selected
-        _image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        if (_imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        if (self.imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera) {
             //Photo taken, save it
-            UIImageWriteToSavedPhotosAlbum(_image, nil, nil, nil);
+            UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil);
         }
     } else {
         //Video taken or selected
-        _videoFilePath = [NSString stringWithFormat:@"%@", [[info objectForKey:UIImagePickerControllerMediaURL] path]];
-        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(_videoFilePath)) {
-            UISaveVideoAtPathToSavedPhotosAlbum(_videoFilePath, nil, nil, nil);
+        self.videoFilePath = [NSString stringWithFormat:@"%@", [[info objectForKey:UIImagePickerControllerMediaURL] path]];
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.videoFilePath)) {
+            UISaveVideoAtPathToSavedPhotosAlbum(self.videoFilePath, nil, nil, nil);
         }
     }
-    [_imagePickerController dismissViewControllerAnimated:YES completion:nil];
+    [self.imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - IBActions 
 
 - (void)reset {
-    _image = nil;
-    _videoFilePath = nil;
-    [_dataHandler.recipients removeAllObjects];
-    [_tableView reloadData];
+    self.image = nil;
+    self.videoFilePath = nil;
+    [self.dataHandler.recipients removeAllObjects];
+    [self.tableView reloadData];
     [self.tabBarController setSelectedIndex:0];
 }
 
@@ -116,40 +112,53 @@
 
 - (IBAction)send:(id)sender {
 
-    if (!_image && !_videoFilePath.length == 0) {
+    if (!self.image && !self.videoFilePath) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Try again!" message:@"Please capture a video or a photo to share!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
-        [self presentViewController:_imagePickerController animated:YES completion:nil];
+        [self presentViewController:self.imagePickerController animated:YES completion:nil];
     } else {
         [self uploadMessage];
-        
     }
 }
 
 - (void)uploadMessage {
-    LogTrace(@"%@", _dataHandler.recipients);
-
-    if (_image) {
+    LogTrace(@"%@", self.dataHandler.recipients);
+    if (self.image) {
         UIImage *image = [self resizeImage:_image width:230.0f height:480.0f];
         [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
-
         @weakify(self);
-        [self.dataHandler.service uploadFile:image recipients:self.dataHandler.recipients success:^(BOOL succeeded) {
+        [[RBService service] uploadImage:image recipients:self.dataHandler.recipients success:^(BOOL succeeded) {
             @strongify(self);
             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
             [self reset];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"NICE!" message:@"Nailed it!!!" delegate:self cancelButtonTitle:@"Pica, pica!" otherButtonTitles:nil];
             [alertView show];
         } failure:^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Obs!" message:@"Please try sending your message again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            @strongify(self);
+            [self failedToUploadMessage];
         }];
-
     } else {
+        [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+        @weakify(self);
+        [[RBService service] uploadVideo:self.videoFilePath recipients:self.dataHandler.recipients success:^(BOOL succeeded) {
+            @strongify(self);
+            [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+            [self reset];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"NICE!" message:@"Nailed it!!!" delegate:self cancelButtonTitle:@"Pica, pica!" otherButtonTitles:nil];
+            [alertView show];
+        } failure:^{
+            @strongify(self);
+            [self failedToUploadMessage];
+        }];
 
     }
 }
 
+- (void)failedToUploadMessage {
+    [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] windows] lastObject] animated:YES];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Obs!" message:@"Please try sending your message again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alertView show];
+}
 - (UIImage *)resizeImage:(UIImage *)image width:(float)width height:(float)height {
 
 
