@@ -36,7 +36,6 @@
 		1ADF52961B835CB200CAB9B9 /* RBUploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52951B835CB200CAB9B9 /* RBUploadData.m */; };
 		1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52991B8367D700CAB9B9 /* RBMessage.m */; };
 		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
-		A9E47CD71B9B65290038A1BD /* RBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E47CD61B9B65290038A1BD /* RBTabBarController.m */; };
 		A9E47CDB1B9B7E860038A1BD /* RBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E47CDA1B9B7E860038A1BD /* RBBaseViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -113,8 +112,6 @@
 		1ADF52991B8367D700CAB9B9 /* RBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBMessage.m; path = Entity/RBMessage.m; sourceTree = "<group>"; };
 		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
 		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
-		A9E47CD51B9B65290038A1BD /* RBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBTabBarController.h; path = ViewController/RBTabBarController.h; sourceTree = "<group>"; };
-		A9E47CD61B9B65290038A1BD /* RBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBTabBarController.m; path = ViewController/RBTabBarController.m; sourceTree = "<group>"; };
 		A9E47CD91B9B7E860038A1BD /* RBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBBaseViewController.h; sourceTree = "<group>"; };
 		A9E47CDA1B9B7E860038A1BD /* RBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				A9E47CD81B9B7E6E0038A1BD /* BaseViewController */,
-				A9E47CD41B9B64ED0038A1BD /* TabBar */,
 				1A510E851B78D7CC00E777D3 /* Camera */,
 				1A510E621B721A3500E777D3 /* Friends */,
 				1A510E5E1B72194100E777D3 /* Inbox */,
@@ -435,15 +431,6 @@
 				1A510E871B78D7ED00E777D3 /* CameraViewController.m */,
 			);
 			name = Camera;
-			sourceTree = "<group>";
-		};
-		A9E47CD41B9B64ED0038A1BD /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				A9E47CD51B9B65290038A1BD /* RBTabBarController.h */,
-				A9E47CD61B9B65290038A1BD /* RBTabBarController.m */,
-			);
-			name = TabBar;
 			sourceTree = "<group>";
 		};
 		A9E47CD81B9B7E6E0038A1BD /* BaseViewController */ = {
@@ -623,7 +610,6 @@
 				1A4F281B1B71054F00C4BC13 /* main.m in Sources */,
 				1A510E6C1B722DE900E777D3 /* RBUser.m in Sources */,
 				1A510E841B74DD0E00E777D3 /* RBFriendsDataHandler.m in Sources */,
-				A9E47CD71B9B65290038A1BD /* RBTabBarController.m in Sources */,
 				1A510E881B78D7ED00E777D3 /* CameraViewController.m in Sources */,
 				1A368C331B94969D002C2301 /* RBMessageViewController.m in Sources */,
 				1A510E741B722F3500E777D3 /* RBService.m in Sources */,
