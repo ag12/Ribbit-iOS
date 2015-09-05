@@ -27,6 +27,7 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
 }
+
 - (IBAction)login:(id)sender {
 
     NSString *username = [RBUtils trimTextField:self.username];
@@ -34,7 +35,11 @@
 
     if (username.length == 0 || password.length == 0 ) {
 
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ouch!" message:@"You did not nailed it!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ouch!"
+                                                            message:@"You did not nailed it!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
         [alertView show];
 
     } else {
@@ -45,7 +50,12 @@
         [[AuthenticationService new] logIn:user completion:^(PFUser *user, NSError *error) {
             if (user) {
                 @strongify(self);
-                [self.navigationController popToRootViewControllerAnimated:YES];
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+                id navigationControllerDelegate = self.navigationController.delegate;
+                if([navigationControllerDelegate isKindOfClass:[UIViewController class]]){
+                    [(UIViewController *)navigationControllerDelegate dismissViewControllerAnimated:YES completion:nil];
+                }
+                
             }
         }];
     }

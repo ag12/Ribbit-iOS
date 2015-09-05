@@ -24,7 +24,10 @@
 
 @implementation RBService
 
-
+-(BOOL)userActiveForCurrentSession
+{
+    return self.user != nil ? YES : NO;
+}
 
 #pragma mark - init
 
@@ -140,7 +143,11 @@
 
 - (void)fetchMessages:(FetchMessages)completion {
     PFQuery *query = [RBMessage query];
-    [query whereKey:[RBMessage recipients] equalTo:self.user.objectId];
+    // found error: if self.user is null (e.g., first time user) the app will crash
+    // because the parameter equalTo cannot be null. equalTo can however take NSNull:
+
+    id userId = [self userActiveForCurrentSession] ? self.user.objectId : [NSNull null];
+    [query whereKey:[RBMessage recipients] equalTo:userId];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *messages, NSError *error) {
         if (messages) {

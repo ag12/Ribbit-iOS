@@ -50,10 +50,11 @@
     if (self.user) {
         self.navigationItem.title = [NSString stringWithFormat:@"%@'s %@", self.user.username, @"Inbox"];
         self.mPlayer = [MPMoviePlayerController new];
-    } else {
-        self.navigationItem.hidesBackButton = YES;
-        [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
     }
+//    else {
+//        self.navigationItem.hidesBackButton = YES;
+//        [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
+//    }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -75,7 +76,8 @@
 
 - (IBAction)logOut:(id)sender {
     [[AuthenticationService new] logOut];
-    [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
+    [self presentLoginAnimated:YES];
+//    [self performSegueWithIdentifier:kAuthenticationSegue sender:self];
 }
 
 #pragma mark - UITableViewDelegate

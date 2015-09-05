@@ -40,7 +40,11 @@
         [[AuthenticationService new] signUp:user completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 @strongify(self);
-                [self.navigationController popToRootViewControllerAnimated:YES];
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+                id navigationControllerDelegate = self.navigationController.delegate;
+                if([navigationControllerDelegate isKindOfClass:[UIViewController class]]){
+                    [(UIViewController *)navigationControllerDelegate dismissViewControllerAnimated:YES completion:nil];
+                }
             }
         }];
     }

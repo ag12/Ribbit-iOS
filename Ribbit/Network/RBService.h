@@ -34,4 +34,5 @@ typedef void (^SeenMessage)(BOOL succeeded);
 - (void)uploadVideo:(NSString *)path recipients:(NSMutableArray *)recipients success:(UploadedFileSucceeded)success failure:(UploadedFileFailed)failure;
 - (void)fetchMessages:(FetchMessages)completion;
 - (void)didSeenMessage:(RBMessage *)message completion:(SeenMessage)completion;
+-(BOOL)userActiveForCurrentSession;
 @end
