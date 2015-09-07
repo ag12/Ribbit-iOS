@@ -7,7 +7,8 @@
 //
 
 #import "RBFriendsDataHandler.h"
+#import "RBBaseViewController.h"
 
-@interface FriendViewController : UIViewController
+@interface FriendViewController : RBBaseViewController
 @property (nonatomic) RBFriendsDataHandler *dataHandler;
 @end

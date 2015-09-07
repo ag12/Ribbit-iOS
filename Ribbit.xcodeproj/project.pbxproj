@@ -36,6 +36,7 @@
 		1ADF52961B835CB200CAB9B9 /* RBUploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52951B835CB200CAB9B9 /* RBUploadData.m */; };
 		1ADF529A1B8367D700CAB9B9 /* RBMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF52991B8367D700CAB9B9 /* RBMessage.m */; };
 		707A2141CA552E1B2A2A9539 /* libPods-Ribbit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F9EE39CFC75C126E8C6C73 /* libPods-Ribbit.a */; };
+		A9E47CDB1B9B7E860038A1BD /* RBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E47CDA1B9B7E860038A1BD /* RBBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		1ADF52991B8367D700CAB9B9 /* RBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBMessage.m; path = Entity/RBMessage.m; sourceTree = "<group>"; };
 		8F4AC9D047BD41F7736589BD /* Pods-Ribbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.debug.xcconfig"; sourceTree = "<group>"; };
 		9F96BF2925DDBCA568334360 /* Pods-Ribbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ribbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ribbit/Pods-Ribbit.release.xcconfig"; sourceTree = "<group>"; };
+		A9E47CD91B9B7E860038A1BD /* RBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBBaseViewController.h; sourceTree = "<group>"; };
+		A9E47CDA1B9B7E860038A1BD /* RBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,7 @@
 		1A4F283E1B71057F00C4BC13 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A9E47CD81B9B7E6E0038A1BD /* BaseViewController */,
 				1A510E851B78D7CC00E777D3 /* Camera */,
 				1A510E621B721A3500E777D3 /* Friends */,
 				1A510E5E1B72194100E777D3 /* Inbox */,
@@ -429,6 +433,15 @@
 			name = Camera;
 			sourceTree = "<group>";
 		};
+		A9E47CD81B9B7E6E0038A1BD /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9E47CD91B9B7E860038A1BD /* RBBaseViewController.h */,
+				A9E47CDA1B9B7E860038A1BD /* RBBaseViewController.m */,
+			);
+			name = BaseViewController;
+			sourceTree = "<group>";
+		};
 		BE2558153D6EF4EA5EF3E7D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +600,7 @@
 				1A510E6F1B722E8200E777D3 /* RBUtils.m in Sources */,
 				1A510E7A1B72525C00E777D3 /* EditFriendViewController.m in Sources */,
 				1A510E681B72264C00E777D3 /* SinupViewController.m in Sources */,
+				A9E47CDB1B9B7E860038A1BD /* RBBaseViewController.m in Sources */,
 				1A368C201B904806002C2301 /* RBInboxDataHandler.m in Sources */,
 				1A368C281B9059C1002C2301 /* RBDataHandler.m in Sources */,
 				1A47DF561B7CDB3A00B8D982 /* RBRecipientsDataHandler.m in Sources */,
