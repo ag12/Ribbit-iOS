@@ -4,8 +4,6 @@
 target 'Ribbit' do
     pod 'Parse'
     pod 'ReactiveCocoa'
-    pod 'TMCache'
-    pod 'SAMCache'
     pod 'MBProgressHUD'
 end
 
